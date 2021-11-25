@@ -34,7 +34,11 @@ namespace malom
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.gametablePanel = new System.Windows.Forms.Panel();
+            this.kulsopanel = new System.Windows.Forms.Panel();
+            this.kozepsopanel = new System.Windows.Forms.Panel();
+            this.belsopanel = new System.Windows.Forms.Panel();
+            this.kulsopanel.SuspendLayout();
+            this.kozepsopanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // nev1txb
@@ -79,19 +83,36 @@ namespace malom
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // gametablePanel
+            // kulsopanel
             // 
-            this.gametablePanel.Location = new System.Drawing.Point(38, 12);
-            this.gametablePanel.Name = "gametablePanel";
-            this.gametablePanel.Size = new System.Drawing.Size(520, 440);
-            this.gametablePanel.TabIndex = 5;
+            this.kulsopanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kulsopanel.Controls.Add(this.kozepsopanel);
+            this.kulsopanel.Location = new System.Drawing.Point(38, 12);
+            this.kulsopanel.Name = "kulsopanel";
+            this.kulsopanel.Size = new System.Drawing.Size(520, 440);
+            this.kulsopanel.TabIndex = 5;
+            // 
+            // kozepsopanel
+            // 
+            this.kozepsopanel.Controls.Add(this.belsopanel);
+            this.kozepsopanel.Location = new System.Drawing.Point(60, 60);
+            this.kozepsopanel.Name = "kozepsopanel";
+            this.kozepsopanel.Size = new System.Drawing.Size(400, 320);
+            this.kozepsopanel.TabIndex = 6;
+            // 
+            // belsopanel
+            // 
+            this.belsopanel.Location = new System.Drawing.Point(60, 60);
+            this.belsopanel.Name = "belsopanel";
+            this.belsopanel.Size = new System.Drawing.Size(280, 200);
+            this.belsopanel.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 459);
-            this.Controls.Add(this.gametablePanel);
+            this.Controls.Add(this.kulsopanel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -99,6 +120,9 @@ namespace malom
             this.Controls.Add(this.nev1txb);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load_1);
+            this.kulsopanel.ResumeLayout(false);
+            this.kozepsopanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,7 +135,9 @@ namespace malom
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel gametablePanel;
+        private System.Windows.Forms.Panel kulsopanel;
+        private System.Windows.Forms.Panel kozepsopanel;
+        private System.Windows.Forms.Panel belsopanel;
     }
 }
 

@@ -31,39 +31,146 @@ namespace malom
             kep2.Visible = true;
             kep2.BackColor = Color.Brown;
             kep2.Size = new System.Drawing.Size(20, 20);
-            gametablePanel.Controls.Add(kep2);
+            kulsopanel.Controls.Add(kep2);
             for (int i = 0; i < 3; i++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int j = 0; j < 6; j++)
                 {
-                    PictureBox kep = new PictureBox();
+                    Panel kep = new Panel();
                     if (j == 0)
                     {
-                        kep.Location = new System.Drawing.Point(0 + (i * 250), 20 + (j * 50));
-                        kep.Name = j + "";
-                        kep.Visible = true;
-                        kep.BackColor = Color.Red;
-                        kep.Size = new System.Drawing.Size(20, 20);
+                        panelgen(i,j,kulsopanel,kep);
+                      
                     }
                     if (j == 1)
                     {
-                        kep.Location = new System.Drawing.Point(0 + (i * 250), 20 + (j * 50));
-                        kep.Name = j + "";
-                        kep.Visible = true;
-                        kep.BackColor = Color.Red;
-                        kep.Size = new System.Drawing.Size(20, 20);
+                        panelgen(i, j, kozepsopanel, kep);
+
                     }
+                    if (j == 2)
+                    {
+                        panelgen(i, j, belsopanel, kep);
+                    }
+                    if (j == 3)
+                    {
 
+                        panelgen(i, j, belsopanel, kep);
+                    }
+                    if (j == 4)
+                    {
+                       panelgen(i, j, kozepsopanel, kep);;
 
-                    gametablePanel.Controls.Add(kep);
+                    }
+                    if (j == 5)
+                    {
+                        panelgen(i, j, kulsopanel, kep);
+                    }
                 }
+            }
+            oldalpanelek();
+        }
 
+        private void panelgen(int i, int j, Panel panel, Panel kep)
+        {
+            if(j<=2)
+            { 
+            kep.Location = new System.Drawing.Point(0 + i * (panel.Width / 2 - 10), 0);
+            kep.Name = j + "";
+            kep.Visible = true;
+            kep.BackColor = Color.Red;
+            kep.Size = new System.Drawing.Size(20, 20);
+
+            panel.Controls.Add(kep);
+            }
+            if(j>=3)
+            {
+                kep.Location = new System.Drawing.Point(0 + i * (panel.Width / 2 - 10), panel.Height - 20);
+                kep.Name = j + "";
+                kep.Visible = true;
+                kep.BackColor = Color.Red;
+                kep.Size = new System.Drawing.Size(20, 20);
+
+                panel.Controls.Add(kep);
+            }
+        }
+
+        private void oldalpanelek()
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                PictureBox kep = new PictureBox();
+                if (i==0)
+                {
+                    kep.Location = new System.Drawing.Point(0, kulsopanel.Height / 2-20);
+                    kep.Visible = true;
+                    kep.BackColor = Color.Red;
+                    kep.Size = new System.Drawing.Size(20, 20);
+
+                    kulsopanel.Controls.Add(kep);
+                }
+                if(i==1)
+                {
+                    kep.Location = new System.Drawing.Point(0, kozepsopanel.Height / 2 - 20);
+                    kep.Visible = true;
+                    kep.BackColor = Color.Red;
+                    kep.Size = new System.Drawing.Size(20, 20);
+
+                    kozepsopanel.Controls.Add(kep);
+                }
+                if (i == 2)
+                {
+                    kep.Location = new System.Drawing.Point(0, belsopanel.Height / 2 - 20);
+                    kep.Visible = true;
+                    kep.BackColor = Color.Red;
+                    kep.Size = new System.Drawing.Size(20, 20);
+
+                    belsopanel.Controls.Add(kep);
+                }
+                if(i==3)
+                {
+                    kep.Location = new System.Drawing.Point(belsopanel.Width-20, belsopanel.Height / 2- 20);
+                    kep.Visible = true;
+                    kep.BackColor = Color.Red;
+                    kep.Size = new System.Drawing.Size(20, 20);
+
+                    belsopanel.Controls.Add(kep);
+                }
+                if (i == 4)
+                {
+                    kep.Location = new System.Drawing.Point(kozepsopanel.Width - 20, kozepsopanel.Height / 2 - 20);
+                    kep.Visible = true;
+                    kep.BackColor = Color.Red;
+                    kep.Size = new System.Drawing.Size(20, 20);
+
+                    kozepsopanel.Controls.Add(kep);
+                }
+                if (i == 5)
+                {
+                    kep.Location = new System.Drawing.Point(kulsopanel.Width - 20, kulsopanel.Height / 2 - 20);
+                    kep.Visible = true;
+                    kep.BackColor = Color.Red;
+                    kep.Size = new System.Drawing.Size(20, 20);
+
+                    kulsopanel.Controls.Add(kep);
+                }
             }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+            panelekbordere();
+        }
+
+        private void panelekbordere()
+        {
+            kulsopanel.BorderStyle = BorderStyle.None;
+            belsopanel.BorderStyle = BorderStyle.None;
+            kozepsopanel.BorderStyle = BorderStyle.None;
         }
     }
 }

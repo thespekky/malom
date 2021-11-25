@@ -20,6 +20,89 @@ namespace malom
         private void button1_Click(object sender, EventArgs e)
         {
             tablageneralas();
+            vonalakgeneralas();
+        }
+
+        private void vonalakgeneralas()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    if (j==0)
+                    {
+                        Panel vonal = new Panel();
+                        //vonal.Location = new System.Drawing.Point(10, 10);
+                        vonal.Visible = true;
+                        vonal.BackColor = Color.Brown;
+                        //vonal.Size = new System.Drawing.Size(2, kulsopanel.Height / 2 - 20);
+                        vonal.Location = new System.Drawing.Point(10 + i * (kulsopanel.Width / 2 - 10), 10);
+                        vonal.Size = new System.Drawing.Size(kulsopanel.Width / 2 - 20, 2);
+                        kulsopanel.Controls.Add(vonal);
+                    }
+                    if (j == 1)
+                    {
+                        Panel vonal = new Panel();
+                        //vonal.Location = new System.Drawing.Point(10, 10);
+                        vonal.Visible = true;
+                        vonal.BackColor = Color.Brown;
+                        vonal.Location = new System.Drawing.Point(10 + i * (kozepsopanel.Width / 2 - 10), 10);
+                        vonal.Size = new System.Drawing.Size(kozepsopanel.Width / 2 - 20, 2);
+                        kozepsopanel.Controls.Add(vonal);
+                    }
+                    if (j == 2)
+                    {
+                        Panel vonal = new Panel();
+                        //vonal.Location = new System.Drawing.Point(10, 10);
+                        vonal.Visible = true;
+                        vonal.BackColor = Color.Brown;
+                        vonal.Location = new System.Drawing.Point(10 + i * (belsopanel.Width / 2 - 10), 10);
+                        vonal.Size = new System.Drawing.Size(kozepsopanel.Width / 2 - 20, 2);
+                        belsopanel.Controls.Add(vonal);
+                    }
+                    if (j == 3)
+                    {
+                        Panel vonal = new Panel();
+                        //vonal.Location = new System.Drawing.Point(10, 10);
+                        vonal.Visible = true;
+                        vonal.BackColor = Color.Brown;
+                        vonal.Location = new System.Drawing.Point(10 + i * (kulsopanel.Width / 2 - 10), kulsopanel.Height - 10);
+                        vonal.Size = new System.Drawing.Size(kulsopanel.Width / 2 - 20, 2);
+                        kulsopanel.Controls.Add(vonal);
+                    }
+                    if (j == 4)
+                    {
+                        Panel vonal = new Panel();
+                        //vonal.Location = new System.Drawing.Point(10, 10);
+                        vonal.Visible = true;
+                        vonal.BackColor = Color.Brown;
+                        vonal.Location = new System.Drawing.Point(10 + i * (kozepsopanel.Width / 2 - 10), kozepsopanel.Height - 10);
+                        vonal.Size = new System.Drawing.Size(kozepsopanel.Width / 2 - 20, 2);
+                        kozepsopanel.Controls.Add(vonal);
+                    }
+                    if (j == 5)
+                    {
+                        Panel vonal = new Panel();
+                        //vonal.Location = new System.Drawing.Point(10, 10);
+                        vonal.Visible = true;
+                        vonal.BackColor = Color.Brown;
+                        vonal.Location = new System.Drawing.Point(10 + i * (belsopanel.Width / 2 - 10), belsopanel.Height - 10);
+                        vonal.Size = new System.Drawing.Size(belsopanel.Width / 2 - 20, 2);
+                        belsopanel.Controls.Add(vonal);
+                    }
+
+                }
+            }
+            for (int i = 0; i < 6; i++)
+            {
+                Panel vonal = new Panel();
+                vonal.Location = new System.Drawing.Point(10, kulsopanel.Height / 2 - 10);
+                vonal.Visible = true;
+                vonal.BackColor = Color.Brown;
+                vonal.Size = new System.Drawing.Size(2, kulsopanel.Height/2-10);
+
+                kulsopanel.Controls.Add(vonal);
+            }
         }
 
         private void tablageneralas()
@@ -66,7 +149,9 @@ namespace malom
                         panelgen(i, j, kulsopanel, kep);
                     }
                 }
+                
             }
+            
             oldalpanelek();
         }
 

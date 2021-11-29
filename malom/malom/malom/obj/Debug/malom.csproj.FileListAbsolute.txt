@@ -48,3 +48,4 @@ D:\GITHUB\214szft\malom2\malom\malom\malom\obj\Debug\malom.csproj.GenerateResour
 D:\GITHUB\214szft\malom2\malom\malom\malom\obj\Debug\malom.csproj.CoreCompileInputs.cache
 D:\GITHUB\214szft\malom2\malom\malom\malom\obj\Debug\malom.exe
 D:\GITHUB\214szft\malom2\malom\malom\malom\obj\Debug\malom.pdb
+D:\Github_Bodnar_andras\malom\malom\malom\malom\obj\Debug\malom.inf.resources

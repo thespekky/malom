@@ -380,5 +380,17 @@ namespace malom
             belsopanel.BorderStyle = BorderStyle.None;
             kozepsopanel.BorderStyle = BorderStyle.None;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            inf info = new inf();
+            this.Hide();
+            info.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

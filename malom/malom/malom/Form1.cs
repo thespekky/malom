@@ -26,86 +26,70 @@ namespace malom
         private void vonalakgeneralas()
         {
             //fönti, lenti
+
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    if (j==0)
+                    Panel vonal = new Panel();
+                    switch (j)
                     {
-                        
-                        Panel vonal = new Panel();
-                        vonalgen(i,j,vonal,kulsopanel);
+                        case 0:
+                            vonalgen(i, j, vonal, kulsopanel);
+                            break;
+                        case 1:
+                            vonalgen(i, j, vonal, kozepsopanel);
+                            break;
+                        case 2:
+                            vonalgen(i, j, vonal, belsopanel);
+                            break;
+                        case 3:
+                            vonalgen(i, j, vonal, kulsopanel);
+                            break;
+                        case 4:
+                            vonalgen(i, j, vonal, kozepsopanel);
+                            break;
+                        case 5:
+                            vonalgen(i, j, vonal, belsopanel);
+                            break;
                     }
-                    if (j == 1)
-                    {
-                        Panel vonal = new Panel();
-                        vonalgen(i, j, vonal, kozepsopanel);
-
-                    }
-                    if (j == 2)
-                    {
-                        Panel vonal = new Panel();
-                        vonalgen(i, j, vonal, belsopanel);
-                       
-                    }
-                    if (j == 3)
-                    {
-                        Panel vonal = new Panel();
-                        vonalgen(i, j, vonal, kulsopanel);
-                    }
-                    if (j == 4)
-                    {
-                        Panel vonal = new Panel();
-                        vonalgen(i, j, vonal, kozepsopanel);
-                       
-                    }
-                    if (j == 5)
-                    {
-                        Panel vonal = new Panel();
-                        vonalgen(i, j, vonal, belsopanel);
-                    }
-
+                    
                 }
             }
+
             //jobb, bal oldal 
+
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 6; j++)
                 {
-                    if (j == 0)
+                    Panel vonal = new Panel();
+                    switch (j)
                     {
-                        Panel vonal = new Panel();
-                        oldalvonal(i,j,vonal,kulsopanel);
+                        case 0:
+                            oldalvonal(i, j, vonal, kulsopanel);
+                            break;
+                        case 1:
+                            oldalvonal(i, j, vonal, kozepsopanel);
+                            break;
+                        case 2:
+                            oldalvonal(i, j, vonal, belsopanel);
+                            break;
+                        case 3:
+                            oldalvonal(i, j, vonal, kulsopanel);
+                            break;
+                        case 4:
+                            oldalvonal(i, j, vonal, kozepsopanel);
+                            break;
+                        case 5:
+                            oldalvonal(i, j, vonal, belsopanel);
+                            break;
                     }
-                    if (j == 1)
-                    {
-                        Panel vonal = new Panel();
-                        oldalvonal(i, j, vonal, kozepsopanel);
-                    }
-                    if (j == 2)
-                    {
-                        Panel vonal = new Panel();
-                        oldalvonal(i, j, vonal, belsopanel);
-                    }
-                    if (j == 3)
-                    {
-                        Panel vonal = new Panel();
-                        oldalvonal(i, j, vonal, kulsopanel);
-                    }
-                    if (j == 4)
-                    {
-                        Panel vonal = new Panel();
-                        oldalvonal(i, j, vonal, kozepsopanel);
-                    }
-                    if (j == 5)
-                    {
-                        Panel vonal = new Panel();
-                        oldalvonal(i, j, vonal, belsopanel);
-                    }
-
                 }
             }
+
             //a középen lévőeket köti össze
+            
             for (int j = 0; j < 2; j++)
             {
                 
@@ -113,23 +97,13 @@ namespace malom
                 if (j==0)
                 {
                     Panel vonal = new Panel();
-                    vonal.Visible = true;
-                    vonal.BackColor = Color.Brown;
-                    vonal.Location = new System.Drawing.Point(10, i * (kulsopanel.Height / 2 - 10));
-                    vonal.Size = new System.Drawing.Size(60, 2);
-                    kulsopanel.Controls.Add(vonal);
+                    kozepbal(j, i, vonal, kulsopanel);
                 }
                 if (j == 1)
                 {
-                    
                     Panel vonal = new Panel();
-                    vonal.Visible = true;
-                    vonal.BackColor = Color.Brown;
-                    vonal.Location = new System.Drawing.Point(10, i * (kozepsopanel.Height / 2 - 10));
-                    vonal.Size = new System.Drawing.Size(60, 2);
-                    kozepsopanel.Controls.Add(vonal);
+                    kozepbal(j, i, vonal, kozepsopanel);
                 }
-                
             }
 
             for (int j = 0; j < 2; j++)
@@ -138,24 +112,84 @@ namespace malom
                 if (j == 0)
                 {
                     Panel vonal = new Panel();
-                    vonal.Visible = true;
-                    vonal.BackColor = Color.Brown;
-                    vonal.Location = new System.Drawing.Point(kulsopanel.Width-80, i * (kulsopanel.Height / 2 - 10));
-                    vonal.Size = new System.Drawing.Size(60,2);
-                    kulsopanel.Controls.Add(vonal);
+                    
+                    kozepjobb(j, i, vonal, kulsopanel);
                 }
                 if (j == 1)
                 {
                     Panel vonal = new Panel();
-                    vonal.Visible = true;
-                    vonal.BackColor = Color.Brown;
-                    vonal.Location = new System.Drawing.Point(kozepsopanel.Width - 80, i * (kozepsopanel.Height / 2 - 10));
-                    vonal.Size = new System.Drawing.Size(60, 2);
-                    kozepsopanel.Controls.Add(vonal);
+                    kozepjobb(j, i, vonal, kozepsopanel);
                 }
-
-
             }
+            
+            //felső és alsó vonalak
+            for (int j = 0; j < 2; j++)
+            {
+                int i = 1;
+                if (j == 0)
+                {
+                    Panel vonal = new Panel();
+                    felso(j,i,vonal,kulsopanel);
+                }
+                if (j == 0)
+                {
+                    Panel vonal = new Panel();
+                    felso(j, i, vonal, kozepsopanel);
+                }
+            }
+            
+            for (int j = 0; j < 2; j++)
+            {
+                int i = 1;
+                if (j == 0)
+                {
+                    Panel vonal = new Panel();
+                    also(j,i,vonal,kulsopanel);
+                }
+                if (j == 0)
+                {
+                    Panel vonal = new Panel();
+                    also(j, i, vonal, kozepsopanel);
+
+                }
+            }
+            
+        }
+
+        private void also(int j, int i, Panel vonal, Panel panel)
+        {
+            vonal.Visible = true;
+            vonal.BackColor = Color.Brown;
+            vonal.Location = new System.Drawing.Point(panel.Width / 2, panel.Height - 60);
+            vonal.Size = new System.Drawing.Size(2, 60);
+            panel.Controls.Add(vonal);
+        }
+
+        private void felso(int j, int i, Panel vonal, Panel panel)
+        {
+            vonal.Visible = true;
+            vonal.BackColor = Color.Brown;
+            vonal.Location = new System.Drawing.Point(panel.Width / 2, 10);
+            vonal.Size = new System.Drawing.Size(2, 60);
+            panel.Controls.Add(vonal);
+        }
+
+        private void kozepbal(int j, int i, Panel vonal, Panel panel)
+        {
+            vonal.Visible = true;
+            vonal.BackColor = Color.Brown;
+            vonal.Location = new System.Drawing.Point(10, i * (panel.Height / 2 - 10));
+            vonal.Size = new System.Drawing.Size(60, 2);
+            panel.Controls.Add(vonal);
+        }
+
+        private void kozepjobb(int j, int i, Panel vonal, Panel panel)
+        {
+            vonal.Visible = true;
+            vonal.BackColor = Color.Brown;
+            vonal.Location = new System.Drawing.Point(panel.Width - 80, i * (panel.Height / 2 - 10));
+            vonal.Size = new System.Drawing.Size(60, 2);
+            panel.Controls.Add(vonal);
         }
 
         private void oldalvonal(int i, int j, Panel vonal, Panel panel)

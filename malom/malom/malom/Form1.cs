@@ -12,6 +12,8 @@ namespace malom
 {
     public partial class Form1 : Form
     {
+        static List<int> position = new List<int>();
+        static List<Panel> panelPosition = new List<Panel>();
         public Form1()
         {
             InitializeComponent();
@@ -251,30 +253,106 @@ namespace malom
                     Panel kep = new Panel();
                     if (j == 0)
                     {
-                        panelgen(i,j,kulsopanel,kep);
-                      
+                        
+                        if (i==0)
+                        {
+                            position.Add(1);
+                        }
+                        else if(i==1)
+                        {
+                            position.Add(2);
+                        }
+                        else
+                        {
+                            position.Add(3);
+                        }
+                        panelgen(i, j, kulsopanel, kep);
                     }
                     if (j == 1)
                     {
+                        
+                        if (i==0)
+                        {
+                            position.Add(4);
+                        }
+                        else if (i == 1)
+                        {
+                            position.Add(5);
+                        }
+                        else
+                        {
+                            position.Add(6);
+                        }
                         panelgen(i, j, kozepsopanel, kep);
 
                     }
                     if (j == 2)
                     {
+                        
+                        if (i==0)
+                        {
+                            position.Add(7);
+                        }
+                        else if(i==1)
+                        {
+                            position.Add(8);
+                        }
+                        else
+                        {
+                            position.Add(9);
+                        }
                         panelgen(i, j, belsopanel, kep);
                     }
                     if (j == 3)
                     {
 
+                       
+                        if (i==0)
+                        {
+                            position.Add(16);
+                        }
+                        else if (i == 1)
+                        {
+                            position.Add(17);
+                        }
+                        else
+                        {
+                            position.Add(18);
+                        }
                         panelgen(i, j, belsopanel, kep);
                     }
                     if (j == 4)
                     {
-                       panelgen(i, j, kozepsopanel, kep);;
-
+                       
+                        if (i==0)
+                        {
+                            position.Add(19);
+                        }
+                        else if (i == 1)
+                        {
+                            position.Add(20);
+                        }
+                        else
+                        {
+                            position.Add(21);
+                        }
+                        panelgen(i, j, kozepsopanel, kep);
                     }
                     if (j == 5)
                     {
+                        
+                        if (i==0)
+                        {
+                            position.Add(22);
+                        }
+                        else if (i == 1)
+                        {
+                            position.Add(23);
+                        }
+                        else
+                        {
+                            position.Add(24);
+                        }
                         panelgen(i, j, kulsopanel, kep);
                     }
                 }
@@ -289,21 +367,22 @@ namespace malom
             if(j<=2)
             { 
             kep.Location = new System.Drawing.Point(0 + i * (panel.Width / 2 - 10), 0);
-            kep.Name = j + "";
+            kep.Name = position[position.Count - 1]+"";
+            
             kep.Visible = true;
             kep.BackColor = Color.Red;
             kep.Size = new System.Drawing.Size(20, 20);
-
+            kep.Click += new System.EventHandler(this.klikk);
             panel.Controls.Add(kep);
             }
             if(j>=3)
             {
                 kep.Location = new System.Drawing.Point(0 + i * (panel.Width / 2 - 10), panel.Height - 20);
-                kep.Name = j + "";
+                kep.Name = position[position.Count - 1]+"";
                 kep.Visible = true;
                 kep.BackColor = Color.Red;
                 kep.Size = new System.Drawing.Size(20, 20);
-
+                kep.Click += new System.EventHandler(this.klikk);
                 panel.Controls.Add(kep);
             }
         }
@@ -315,27 +394,39 @@ namespace malom
                 Panel kep = new Panel();
                 if (i==0)
                 {
-                    oldalgen(i,kep,kulsopanel);
-                    
+                   
+                    position.Add(10);
+                    oldalgen(i, kep, kulsopanel);
+
                 }
                 if(i==1)
                 {
+                    
+                    position.Add(11);
                     oldalgen(i, kep, kozepsopanel);
                 }
                 if (i == 2)
                 {
+                    
+                    position.Add(12);
                     oldalgen(i, kep, belsopanel);
                 }
                 if(i==3)
                 {
+                    
+                    position.Add(13);
                     oldalgen(i, kep, belsopanel);
                 }
                 if (i == 4)
                 {
+                    
+                    position.Add(14);
                     oldalgen(i, kep, kozepsopanel);
                 }
                 if (i == 5)
                 {
+                    
+                    position.Add(15);
                     oldalgen(i, kep, kulsopanel);
                 }
             }
@@ -347,21 +438,29 @@ namespace malom
                 {
                 kep.Location = new System.Drawing.Point(0, panel.Height / 2 - 20);
                 kep.Visible = true;
+                kep.Name = position[position.Count - 1] + "";
                 kep.BackColor = Color.Red;
                 kep.Size = new System.Drawing.Size(20, 20);
-
+                kep.Click += new System.EventHandler(this.klikk);
                 panel.Controls.Add(kep);
             }
             if(i>=3)
             {
                 kep.Location = new System.Drawing.Point(panel.Width - 20, panel.Height / 2 - 20);
                 kep.Visible = true;
+                kep.Name = position[position.Count - 1] + "";
                 kep.BackColor = Color.Red;
                 kep.Size = new System.Drawing.Size(20, 20);
-
+                kep.Click += new System.EventHandler(this.klikk);
                 panel.Controls.Add(kep);
             }
            
+        }
+
+        private void klikk(object sender, EventArgs e)
+        {
+            Panel klikkelt = sender as Panel;
+            MessageBox.Show($"Name: {klikkelt.Name}, Tag: {klikkelt.Tag}");
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

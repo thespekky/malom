@@ -49,3 +49,4 @@ D:\GITHUB\214szft\malom2\malom\malom\malom\obj\Debug\malom.csproj.CoreCompileInp
 D:\GITHUB\214szft\malom2\malom\malom\malom\obj\Debug\malom.exe
 D:\GITHUB\214szft\malom2\malom\malom\malom\obj\Debug\malom.pdb
 D:\Github_Bodnar_andras\malom\malom\malom\malom\obj\Debug\malom.inf.resources
+D:\1.14\BT\asztali alk\malom\malom\malom\malom\obj\Debug\malom.inf.resources

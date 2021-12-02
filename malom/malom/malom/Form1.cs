@@ -14,6 +14,12 @@ namespace malom
     {
         static List<int> position = new List<int>();
         static List<Panel> panelPosition = new List<Panel>();
+        static List<PictureBox> PicturePosition = new List<PictureBox>();
+        static string nev1 = "";
+        static string nev2 = "";
+        static int letetel = 18;
+        static int szin = 0;
+        static bool mozgatas = false;
         public Form1()
         {
             InitializeComponent();
@@ -28,6 +34,10 @@ namespace malom
             else
             { if(nev2txb.Text != nev1txb.Text)
                 {
+                    nev1 = nev1txb.Text;
+                    nev2 = nev2txb.Text;
+                    kijonlbl.Text = "Letevés: ";
+                    kijonlbl.Visible = true;
                     tablageneralas();
                     eltuntetes();
                     vonalakgeneralas();
@@ -399,6 +409,8 @@ namespace malom
             kep.Size = new System.Drawing.Size(20, 20);
             kep.Click += new System.EventHandler(this.klikk);
             panel.Controls.Add(kep);
+
+                
             }
             if(j>=3)
             {
@@ -409,6 +421,8 @@ namespace malom
                 kep.Size = new System.Drawing.Size(20, 20);
                 kep.Click += new System.EventHandler(this.klikk);
                 panel.Controls.Add(kep);
+
+                
             }
         }
 
@@ -485,7 +499,65 @@ namespace malom
         private void klikk(object sender, EventArgs e)
         {
             Panel klikkelt = sender as Panel;
-            MessageBox.Show($"Name: {klikkelt.Name}, Tag: {klikkelt.Tag}");
+            
+            PictureBox picture = new PictureBox();
+            picture.Location = new System.Drawing.Point(0, 0);
+            picture.Size = new System.Drawing.Size(20, 20);
+            picture.Name = position[position.Count - 1] + "";
+            picture.SizeMode = PictureBoxSizeMode.Zoom;
+            picture.Click += new System.EventHandler(this.kepKlikk);
+            if (letetel>0)
+            {
+                if (szin == 0)
+                {
+                    szin = 1;
+                    picture.Image = Image.FromFile("feher.png");
+                }
+                else
+                {
+                    szin = 0;
+                    picture.Image = Image.FromFile("fekete.png");
+                }
+                letetel--;
+                
+            }
+            if (letetel==0)
+            {
+                kijonlbl.Text = "Mozgatás: ";
+                kijonlbl.Visible = true;
+                mozgatas = true;
+            }
+            picture.BringToFront();
+            klikkelt.Controls.Add(picture);
+            PicturePosition.Add(picture);
+
+           //MessageBox.Show($"Name: {klikkelt.Name}, Tag: {klikkelt.Tag}");
+        }
+
+        private void kepKlikk(object sender, EventArgs e)
+        {
+            PictureBox klikkelt = sender as PictureBox;
+            //ID zéssel bajok vannak
+            MessageBox.Show("" + PicturePosition[1].Name);
+            if (mozgatas==true)
+            {
+                int id = Convert.ToInt32(klikkelt.Name);
+                hovamozoghat(id);
+            }
+        }
+
+        private void hovamozoghat(int id)
+        {
+            switch (id)
+            {
+                case 1:
+                    MessageBox.Show("Valami");
+                    PicturePosition[1].Tag = "10";
+                    MessageBox.Show("" + PicturePosition[1].Tag);
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

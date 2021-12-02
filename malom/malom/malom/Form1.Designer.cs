@@ -40,9 +40,11 @@ namespace malom
             this.button2 = new System.Windows.Forms.Button();
             this.kijonlbl = new System.Windows.Forms.Label();
             this.bezarbtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.kulsopanel.SuspendLayout();
             this.kozepsopanel.SuspendLayout();
             this.belsopanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // nev1txb
@@ -92,7 +94,7 @@ namespace malom
             this.kulsopanel.BackColor = System.Drawing.Color.Transparent;
             this.kulsopanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.kulsopanel.Controls.Add(this.kozepsopanel);
-            this.kulsopanel.Location = new System.Drawing.Point(148, 54);
+            this.kulsopanel.Location = new System.Drawing.Point(147, 91);
             this.kulsopanel.Name = "kulsopanel";
             this.kulsopanel.Size = new System.Drawing.Size(520, 440);
             this.kulsopanel.TabIndex = 5;
@@ -151,6 +153,15 @@ namespace malom
             this.bezarbtn.UseVisualStyleBackColor = true;
             this.bezarbtn.Click += new System.EventHandler(this.button4_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(479, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(69, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,6 +170,7 @@ namespace malom
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(800, 563);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.bezarbtn);
             this.Controls.Add(this.kijonlbl);
             this.Controls.Add(this.kulsopanel);
@@ -174,6 +186,7 @@ namespace malom
             this.kozepsopanel.ResumeLayout(false);
             this.kozepsopanel.PerformLayout();
             this.belsopanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,6 +205,7 @@ namespace malom
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label kijonlbl;
         private System.Windows.Forms.Button bezarbtn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

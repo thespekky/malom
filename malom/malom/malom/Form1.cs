@@ -21,8 +21,33 @@ namespace malom
 
         private void button1_Click(object sender, EventArgs e)
         {
-            tablageneralas();
-            vonalakgeneralas();
+            if(nev1txb.Text==""||nev2txb.Text=="")
+            {
+                MessageBox.Show("Addjon meg 2 nevet");
+            }
+            else
+            { if(nev2txb.Text != nev1txb.Text)
+                {
+                    tablageneralas();
+                    eltuntetes();
+                    vonalakgeneralas();
+                }
+            else
+                {
+                    MessageBox.Show("Adjon meg különböző neveket.");
+                }
+            }
+        }
+
+        private void eltuntetes()
+        {
+            label1.Visible = false;
+            label2.Visible = false;
+            nev2txb.Visible = false;
+            nev1txb.Visible = false;
+            button1.Visible = false;
+            button2.Visible = false;
+
         }
 
         private void vonalakgeneralas()
@@ -483,6 +508,7 @@ namespace malom
         private void button2_Click(object sender, EventArgs e)
         {
             inf info = new inf();
+           
             this.Hide();
             info.Show();
         }

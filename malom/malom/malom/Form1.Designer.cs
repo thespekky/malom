@@ -38,9 +38,8 @@ namespace malom
             this.kozepsopanel = new System.Windows.Forms.Panel();
             this.belsopanel = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.kijonlbl = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.bezarbtn = new System.Windows.Forms.Button();
             this.kulsopanel.SuspendLayout();
             this.kozepsopanel.SuspendLayout();
             this.belsopanel.SuspendLayout();
@@ -114,7 +113,6 @@ namespace malom
             // belsopanel
             // 
             this.belsopanel.BackColor = System.Drawing.Color.Transparent;
-            this.belsopanel.Controls.Add(this.button3);
             this.belsopanel.Controls.Add(this.button2);
             this.belsopanel.Controls.Add(this.button1);
             this.belsopanel.Location = new System.Drawing.Point(60, 60);
@@ -132,15 +130,6 @@ namespace malom
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(102, 131);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 52);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Készítők";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // kijonlbl
             // 
             this.kijonlbl.AutoSize = true;
@@ -152,15 +141,15 @@ namespace malom
             this.kijonlbl.Text = "kijon";
             this.kijonlbl.Visible = false;
             // 
-            // button4
+            // bezarbtn
             // 
-            this.button4.Location = new System.Drawing.Point(694, 12);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Bezár";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.bezarbtn.Location = new System.Drawing.Point(694, 12);
+            this.bezarbtn.Name = "bezarbtn";
+            this.bezarbtn.Size = new System.Drawing.Size(75, 23);
+            this.bezarbtn.TabIndex = 7;
+            this.bezarbtn.Text = "Bezár";
+            this.bezarbtn.UseVisualStyleBackColor = true;
+            this.bezarbtn.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 
@@ -168,9 +157,9 @@ namespace malom
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SandyBrown;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(816, 602);
+            this.ClientSize = new System.Drawing.Size(800, 563);
             this.ControlBox = false;
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.bezarbtn);
             this.Controls.Add(this.kijonlbl);
             this.Controls.Add(this.kulsopanel);
             this.MaximizeBox = false;
@@ -200,10 +189,9 @@ namespace malom
         private System.Windows.Forms.Panel kulsopanel;
         private System.Windows.Forms.Panel kozepsopanel;
         private System.Windows.Forms.Panel belsopanel;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label kijonlbl;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button bezarbtn;
     }
 }
 

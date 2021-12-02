@@ -34,8 +34,15 @@ namespace malom
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.informaciolbl = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.korong1 = new System.Windows.Forms.PictureBox();
+            this.krong2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.korong1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.krong2)).BeginInit();
             this.SuspendLayout();
             // 
             // visszabtn
@@ -64,12 +71,64 @@ namespace malom
             // 
             // informaciolbl
             // 
-            this.informaciolbl.AutoSize = true;
-            this.informaciolbl.Location = new System.Drawing.Point(27, 84);
+            this.informaciolbl.BackColor = System.Drawing.Color.Red;
+            this.informaciolbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.informaciolbl.ForeColor = System.Drawing.Color.Black;
+            this.informaciolbl.Location = new System.Drawing.Point(54, 84);
             this.informaciolbl.Name = "informaciolbl";
-            this.informaciolbl.Size = new System.Drawing.Size(35, 13);
+            this.informaciolbl.Size = new System.Drawing.Size(405, 327);
             this.informaciolbl.TabIndex = 2;
             this.informaciolbl.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.Blue;
+            this.label2.Location = new System.Drawing.Point(525, 355);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 25);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Készítők:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.Blue;
+            this.label1.Location = new System.Drawing.Point(631, 355);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(155, 25);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Bodnár András";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.Blue;
+            this.label3.Location = new System.Drawing.Point(631, 399);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(152, 25);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Bodnár Tamás";
+            // 
+            // korong1
+            // 
+            this.korong1.Location = new System.Drawing.Point(131, 369);
+            this.korong1.Name = "korong1";
+            this.korong1.Size = new System.Drawing.Size(39, 28);
+            this.korong1.TabIndex = 7;
+            this.korong1.TabStop = false;
+            // 
+            // krong2
+            // 
+            this.krong2.Location = new System.Drawing.Point(300, 369);
+            this.krong2.Name = "krong2";
+            this.krong2.Size = new System.Drawing.Size(39, 28);
+            this.krong2.TabIndex = 8;
+            this.krong2.TabStop = false;
             // 
             // inf
             // 
@@ -78,6 +137,11 @@ namespace malom
             this.BackColor = System.Drawing.Color.SandyBrown;
             this.ClientSize = new System.Drawing.Size(800, 563);
             this.ControlBox = false;
+            this.Controls.Add(this.krong2);
+            this.Controls.Add(this.korong1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.informaciolbl);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.visszabtn);
@@ -88,8 +152,11 @@ namespace malom
             this.Name = "inf";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "információ";
+            this.Load += new System.EventHandler(this.inf_Load);
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.korong1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.krong2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,5 +168,10 @@ namespace malom
         private System.Diagnostics.EventLog eventLog1;
         private System.Windows.Forms.Label informaciolbl;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox krong2;
+        private System.Windows.Forms.PictureBox korong1;
     }
 }

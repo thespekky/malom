@@ -12,3 +12,6 @@ Panel lista a generáláskor
 
 
 Panel listaelemekhez hozzáadni, egy picturebox ot és annak a képét állítani?
+
+tag átírása és csak arra tud kapcsolni a játékos
+  választási lehetőség van hogy szinezve legyen azok a helyek amikre léphet vagy sem és a játékos 3 scrollbarral beállythatja a háttérszínt

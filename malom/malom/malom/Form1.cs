@@ -17,11 +17,16 @@ namespace malom
         //PicturePos tömb, 0-24 ig a megfelelő indexű helyre(panel pos? vagy position) mindig hozzáadni picPos hoz 
         static List<PictureBox> PicturePosition = new List<PictureBox>();
         static PictureBox[] PicPosition = new PictureBox[24];
+        static int[] szinek = new int[24];
         static string nev1 = "";
         static string nev2 = "";
         static int letetel = 18;
         static int szin = 0;
         static bool mozgatas = false;
+        static bool lerakas = false;
+        static int honnan = 0;
+        static int letetelutan = 0;
+        static int kijon = 0;
         public Form1()
         {
             InitializeComponent();
@@ -38,7 +43,7 @@ namespace malom
                 {
                     nev1 = nev1txb.Text;
                     nev2 = nev2txb.Text;
-                    kijonlbl.Text = "Letevés: ";
+                    kijonlbl.Text = "Letevés: "+nev1;
                     kijonlbl.Visible = true;
                     tablageneralas();
                     eltuntetes();
@@ -275,14 +280,21 @@ namespace malom
 
         private void tablageneralas()
         {
+            for (int i = 0; i < szinek.Length; i++)
+            {
+                szinek[i] =-1;
+            }
+            //MessageBox.Show("Szinek utolsó eleme elivelg -1:   " + szinek[23]);
             int kozepi = 250;
             int kozepj = 220;
+            /*
             PictureBox kep2 = new PictureBox();
             kep2.Location = new System.Drawing.Point(kozepi,kozepj);
             kep2.Visible = true;
             kep2.BackColor = Color.Brown;
             kep2.Size = new System.Drawing.Size(20, 20);
             kulsopanel.Controls.Add(kep2);
+            MessageBox.Show("Első kép?");*/
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 6; j++)
@@ -412,7 +424,23 @@ namespace malom
             kep.Click += new System.EventHandler(this.klikk);
             panel.Controls.Add(kep);
 
-                
+            
+           //MessageBox.Show("Panel name: " + klikkelt.Name);
+
+            PictureBox picture = new PictureBox();
+            picture.Location = new System.Drawing.Point(0, 0);
+            picture.Size = new System.Drawing.Size(20, 20);
+            picture.Name = kep.Name + "";
+            picture.Tag = "";
+            //MessageBox.Show("Picture name: " + picture.Name);
+            picture.SizeMode = PictureBoxSizeMode.Zoom;
+            picture.Click += new System.EventHandler(this.kepKlikk);
+            picture.BringToFront();
+            kep.Controls.Add(picture);
+
+            int id = Convert.ToInt32(picture.Name)-1;
+            PicPosition[id] = new PictureBox();
+            PicPosition[id] = picture;
             }
             if(j>=3)
             {
@@ -424,7 +452,21 @@ namespace malom
                 kep.Click += new System.EventHandler(this.klikk);
                 panel.Controls.Add(kep);
 
-                
+                PictureBox picture = new PictureBox();
+                picture.Location = new System.Drawing.Point(0, 0);
+                picture.Size = new System.Drawing.Size(20, 20);
+                picture.Name = kep.Name + "";
+                picture.Tag = "";
+                //MessageBox.Show("Picture name: " + picture.Name);
+                picture.SizeMode = PictureBoxSizeMode.Zoom;
+                picture.Click += new System.EventHandler(this.kepKlikk);
+                picture.BringToFront();
+                kep.Controls.Add(picture);
+
+                int id = Convert.ToInt32(picture.Name)-1;
+                PicPosition[id] = new PictureBox();
+                PicPosition[id] = picture;
+
             }
         }
 
@@ -484,6 +526,21 @@ namespace malom
                 kep.Size = new System.Drawing.Size(20, 20);
                 kep.Click += new System.EventHandler(this.klikk);
                 panel.Controls.Add(kep);
+
+                PictureBox picture = new PictureBox();
+                picture.Location = new System.Drawing.Point(0, 0);
+                picture.Size = new System.Drawing.Size(20, 20);
+                picture.Name = kep.Name + "";
+                picture.Tag = "";
+                //MessageBox.Show("Picture name: " + picture.Name);
+                picture.SizeMode = PictureBoxSizeMode.Zoom;
+                picture.Click += new System.EventHandler(this.kepKlikk);
+                picture.BringToFront();
+                kep.Controls.Add(picture);
+
+                int id = Convert.ToInt32(picture.Name)-1;
+                PicPosition[id] = new PictureBox();
+                PicPosition[id] = picture;
             }
             if(i>=3)
             {
@@ -494,12 +551,27 @@ namespace malom
                 kep.Size = new System.Drawing.Size(20, 20);
                 kep.Click += new System.EventHandler(this.klikk);
                 panel.Controls.Add(kep);
+
+                PictureBox picture = new PictureBox();
+                picture.Location = new System.Drawing.Point(0, 0);
+                picture.Size = new System.Drawing.Size(20, 20);
+                picture.Name = kep.Name + "";
+                picture.Tag = "";
+                //MessageBox.Show("Picture name: " + picture.Name);
+                picture.SizeMode = PictureBoxSizeMode.Zoom;
+                picture.Click += new System.EventHandler(this.kepKlikk);
+                picture.BringToFront();
+                kep.Controls.Add(picture);
+
+                int id = Convert.ToInt32(picture.Name)-1;
+                PicPosition[id] = new PictureBox();
+                PicPosition[id] = picture;
             }
            
         }
 
         private void klikk(object sender, EventArgs e)
-        {
+        {/*
             //MessageBox.Show("Position : " + position[position.Count - 1]);
             Panel klikkelt = sender as Panel;
            //MessageBox.Show("Panel name: " + klikkelt.Name);
@@ -541,20 +613,106 @@ namespace malom
             PicPosition[id] = new PictureBox();
             PicPosition[id] = picture;
             //MessageBox.Show($"Name: {klikkelt.Name}, Tag: {klikkelt.Tag}");
+            */
         }
 
         private void kepKlikk(object sender, EventArgs e)
         {
+            
             PictureBox klikkelt = sender as PictureBox;
-            MessageBox.Show("klikkelt name convertálás előtt: " +klikkelt.Name);
+            int iduj = Convert.ToInt32(klikkelt.Name);
+            
+            if (lerakas)
+            {
+                //MessageBox.Show("Lerakásban vagyunk az előző kattintás id je: " + honnan);
+                //ugyan oda kapcsolt
+                if (honnan==iduj+1)
+                {
+                    lerakas = false;
+                }
+                if (PicPosition[iduj-1].Tag=="1")
+                {
+                    //puictureboxok id jét át kéne váltani?
+                    // ha nincs ott semmi akkor csak simán tegye bele
+                    
+                    if (szinek[honnan]==0)
+                    {
+                        if (kijon==0)
+                        {
+                        klikkelt.Image = Image.FromFile("feher.png");
+                        PicPosition[honnan].Image = null;
+                        PicPosition[honnan].Tag = "0";
+                        szinek[iduj - 1] = 0;
+                        szinek[honnan] = -1;
+                        //MessageBox.Show("Elivleg kész a képváltás!");
+                        
+                         kijon = 1;
+                            kijonlbl.Text = "Mozgatás: " + nev2;
+                        }
+
+                    }
+                    if (szinek[honnan] == 1)
+                    {
+                        if (kijon==1)
+                        {
+                            klikkelt.Image = Image.FromFile("fekete.png");
+                            PicPosition[honnan].Image = null;
+                            PicPosition[honnan].Tag = "0";
+                            szinek[iduj - 1] = 1;
+                            szinek[honnan] = -1;
+                            //MessageBox.Show("Elivleg kész a képváltás!");
+                            
+                             kijon = 0;
+                            kijonlbl.Text = "Mozgatás: " + nev1;
+                        }
+                        
+                    }
+                }
+                lerakas = false;
+               
+            }
+            else
+            {
+                if (szinek[iduj - 1] == -1)
+                {
+                    if (letetel > 0)
+                    {
+                        if (szin == 0)
+                        {
+                            szin = 1;
+                            klikkelt.Image = Image.FromFile("feher.png");
+                            szinek[iduj - 1] = 0; 
+                            kijonlbl.Text = "Letevés: " + nev2;
+                        }
+                        else
+                        {
+                            szin = 0;
+                            klikkelt.Image = Image.FromFile("fekete.png");
+                            szinek[iduj - 1] = 1;
+                            kijonlbl.Text = "Letevés: " + nev1;
+                        }
+                        letetel--;
+
+                    }
+                    if (letetel == 0)
+                    {
+                        kijonlbl.Text = "Mozgatás: "+nev1;
+                        kijonlbl.Visible = true;
+                        mozgatas = true;
+                    }
+                }
+                if (mozgatas == true)
+                {
+                    //MessageBox.Show("klikkelt name: " + iduj);
+                    // ez nem a nevét tárolja hanem a pozícióját a színek és a PicPos tömbön belül
+                    honnan = iduj-1;
+                    hovamozoghat(iduj);
+                }
+            }
+            //MessageBox.Show("klikkelt name convertálás előtt: " +klikkelt.Name);
             //ID zéssel bajok vannak
             //MessageBox.Show("" + PicPosition[1].Name);
-            if (mozgatas==true)
-            {
-                int id = Convert.ToInt32(klikkelt.Name);
-                MessageBox.Show("klikkelt name: " + id);
-                hovamozoghat(id);
-            }
+            
         }
 
         private void hovamozoghat(int id)
@@ -562,129 +720,294 @@ namespace malom
             //probléma   18 helyre klikkeltünk oda létre hoz picturebox okat, de a többi maradék helyre még nem
             // és ez nem tesz majd jót az ellerőzésnek, ezért majd valahol kell a maradék helyre is létrehozni 
             //pictureboxokat   vagy ahol nézzük a letevést vagy éppenséggel itt
+
+            // 0 ahova nem tud mozogni
+            //1 ahova tud
+            
             for (int i = 0; i < PicPosition.Length; i++)
             {
                 PicPosition[i].Tag = "0";
             }
+            int[] pos = new int[4];
+            for (int i = 0; i < pos.Length-1; i++)
+            {
+                pos[i] = -1;
+            }
+
             switch (id)
             {
                 case 1:
                     //MessageBox.Show("picposition tag: " + PicPosition[1].Tag);
-                    PicPosition[2].Tag = "1";
-                    PicPosition[10].Tag = "1";
+                    PicPosition[1].Tag = "1";
+                    PicPosition[9].Tag = "1";
+                    pos[0] = 1;
+                    pos[1] = 9;
+                    vaneottelem(pos);
+                    
                     //MessageBox.Show("elvileg tíz: " + PicPosition[1].Tag);
                     break;
                 case 2:
-                    PicPosition[1].Tag = "1";
-                    PicPosition[3].Tag = "1";
-                    PicPosition[5].Tag = "1";
+                    PicPosition[0].Tag = "1";
+                    PicPosition[2].Tag = "1";
+                    PicPosition[4].Tag = "1";
+                    pos[0] = 0;
+                    pos[1] = 2;
+                    pos[2] = 4;
+                    
+                    vaneottelem(pos);
                     break;
                 case 3:
-                    PicPosition[2].Tag = "1";
-                    PicPosition[15].Tag = "1";
+                    PicPosition[1].Tag = "1";
+                    PicPosition[14].Tag = "1";
+                    pos[0] = 1;
+                    pos[1] = 14;
+                    
+
+                    vaneottelem(pos);
                     break;
                 case 4:
-                    PicPosition[5].Tag = "1";
-                    PicPosition[11].Tag = "1";
+                    PicPosition[4].Tag = "1";
+                    PicPosition[10].Tag = "1";
+                    pos[0] = 4;
+                    pos[1] = 10;
+                    
+
+                    vaneottelem(pos);
                     break;
                 case 5:
-                    PicPosition[2].Tag = "1";
-                    PicPosition[4].Tag = "1";
-                    PicPosition[6].Tag = "1";
-                    PicPosition[8].Tag = "1";
+                    PicPosition[1].Tag = "1";
+                    PicPosition[3].Tag = "1";
+                    PicPosition[5].Tag = "1";
+                    PicPosition[7].Tag = "1";
+
+                    pos[0] = 1;
+                    pos[1] = 3;
+                    pos[2] = 5;
+                    pos[3] = 7;
+
+                    vaneottelem(pos);
                     break;
                 case 6:
-                    PicPosition[5].Tag = "1";
-                    PicPosition[14].Tag = "1";
+                    PicPosition[4].Tag = "1";
+                    PicPosition[13].Tag = "1";
+                    pos[0] = 4;
+                    pos[1] = 13;
+                    
+
+                    vaneottelem(pos);
                     break;
                 case 7:
-                    PicPosition[8].Tag = "1";
-                    PicPosition[12].Tag = "1";
+                    PicPosition[7].Tag = "1";
+                    PicPosition[11].Tag = "1";
+                    pos[0] = 7;
+                    pos[1] = 11;
+                    
+                    vaneottelem(pos);
                     break;
                 case 8:
-                    PicPosition[7].Tag = "1";
-                    PicPosition[9].Tag = "1";
-                    PicPosition[5].Tag = "1";
+                    PicPosition[6].Tag = "1";
+                    PicPosition[8].Tag = "1";
+                    PicPosition[4].Tag = "1";
+                    pos[0] = 6;
+                    pos[1] = 8;
+                    pos[2] = 4;
+                    vaneottelem(pos);
                     break;
                 case 9:
-                    PicPosition[8].Tag = "1";
-                    PicPosition[13].Tag = "1";
+                    PicPosition[7].Tag = "1";
+                    PicPosition[12].Tag = "1";
+                    pos[0] = 7;
+                    pos[1] = 12;
+                    
+                    vaneottelem(pos);
                     break;
                 case 10:
-                    PicPosition[1].Tag = "1";
-                    PicPosition[11].Tag = "1";
-                    PicPosition[22].Tag = "1";
+                    PicPosition[0].Tag = "1";
+                    PicPosition[10].Tag = "1";
+                    PicPosition[21].Tag = "1";
+                    pos[0] = 0;
+                    pos[1] = 10;
+                    pos[2] = 21;
+                    
+                    vaneottelem(pos);
                     break;
                 case 11:
-                    PicPosition[4].Tag = "1";
-                    PicPosition[10].Tag = "1";
-                    PicPosition[12].Tag = "1";
-                    PicPosition[19].Tag = "1";
+                    PicPosition[3].Tag = "1";
+                    PicPosition[9].Tag = "1";
+                    PicPosition[11].Tag = "1";
+                    PicPosition[18].Tag = "1";
+                    pos[0] = 3;
+                    pos[1] = 9;
+                    pos[2] = 11;
+                    pos[3] = 18;
+
+                    vaneottelem(pos);
                     break;
                 case 12:
-                    PicPosition[7].Tag = "1";
-                    PicPosition[16].Tag = "1";
+                    PicPosition[6].Tag = "1";
+                    PicPosition[15].Tag = "1";
+                    pos[0] = 6;
+                    pos[1] = 15;
+                    
+
+                    vaneottelem(pos);
                     break;
                 case 13:
-                    PicPosition[9].Tag = "1";
-                    PicPosition[18].Tag = "1";
-                    PicPosition[14].Tag = "1";
+                    PicPosition[8].Tag = "1";
+                    PicPosition[17].Tag = "1";
+                    PicPosition[13].Tag = "1";
+                    pos[0] = 8;
+                    pos[1] = 17;
+                    pos[2] = 13;
+                    
+                    vaneottelem(pos);
                     break;
                 case 14:
-                    PicPosition[6].Tag = "1";
-                    PicPosition[13].Tag = "1";
-                    PicPosition[15].Tag = "1";
-                    PicPosition[21].Tag = "1";
+                    PicPosition[5].Tag = "1";
+                    PicPosition[12].Tag = "1";
+                    PicPosition[14].Tag = "1";
+                    PicPosition[20].Tag = "1";
+                    pos[0] = 5;
+                    pos[1] = 12;
+                    pos[2] = 14;
+                    pos[3] = 20;
+
+                    vaneottelem(pos);
                     break;
                 case 15:
-                    PicPosition[3].Tag = "1";
-                    PicPosition[14].Tag = "1";
-                    PicPosition[24].Tag = "1";
+                    PicPosition[2].Tag = "1";
+                    PicPosition[13].Tag = "1";
+                    PicPosition[23].Tag = "1";
+
+                    pos[0] = 2;
+                    pos[1] = 13;
+                    pos[2] = 23;
+                    
+
+                    vaneottelem(pos);
                     break;
                 case 16:
-                    PicPosition[12].Tag = "1";
-                    PicPosition[17].Tag = "1";
+                    PicPosition[11].Tag = "1";
+                    PicPosition[16].Tag = "1";
+                    pos[0] = 11;
+                    pos[1] = 16;
+
+                    vaneottelem(pos);
                     break;
                 case 17:
+                    PicPosition[15].Tag = "1";
+                    PicPosition[17].Tag = "1";
+                    PicPosition[19].Tag = "1";
+                    pos[0] = 15;
+                    pos[1] = 17;
+                    pos[2] = 19;
+
+                    vaneottelem(pos);
+                    break;
+                case 18:
+                    PicPosition[16].Tag = "1";
+                    PicPosition[12].Tag = "1";
+                    pos[0] = 16;
+                    pos[1] = 12;
+
+                    vaneottelem(pos);
+                    break;
+                case 19:
+                    PicPosition[10].Tag = "1";
+                    PicPosition[19].Tag = "1";
+                    pos[0] = 10;
+                    pos[1] = 19;
+
+                    vaneottelem(pos);
+                    break;
+                case 20:
                     PicPosition[16].Tag = "1";
                     PicPosition[18].Tag = "1";
                     PicPosition[20].Tag = "1";
-                    break;
-                case 18:
-                    PicPosition[17].Tag = "1";
-                    PicPosition[13].Tag = "1";
-                    break;
-                case 19:
-                    PicPosition[11].Tag = "1";
-                    PicPosition[20].Tag = "1";
-                    break;
-                case 20:
-                    PicPosition[17].Tag = "1";
-                    PicPosition[19].Tag = "1";
-                    PicPosition[21].Tag = "1";
-                    PicPosition[23].Tag = "1";
+                    PicPosition[22].Tag = "1";
+                    pos[0] = 16;
+                    pos[1] = 18;
+                    pos[2] = 20;
+                    pos[3] = 22;
+
+                    vaneottelem(pos);
                     break;
                 case 21:
-                    PicPosition[20].Tag = "1";
-                    PicPosition[14].Tag = "1";
+                    PicPosition[19].Tag = "1";
+                    PicPosition[13].Tag = "1";
+                    pos[0] = 19;
+                    pos[1] = 13;
+                    
+
+                    vaneottelem(pos);
                     break;
                 case 22:
-                    PicPosition[10].Tag = "1";
-                    PicPosition[23].Tag = "1";
+                    PicPosition[9].Tag = "1";
+                    PicPosition[22].Tag = "1";
+                    pos[0] = 9;
+                    pos[1] = 22;
+
+                    vaneottelem(pos);
                     break;
                 case 23:
-                    PicPosition[22].Tag = "1";
-                    PicPosition[20].Tag = "1";
-                    PicPosition[24].Tag = "1";
+                    PicPosition[21].Tag = "1";
+                    PicPosition[19].Tag = "1";
+                    PicPosition[23].Tag = "1";
+                    pos[0] = 21;
+                    pos[1] = 19;
+                    pos[2] = 23;
+
+                    vaneottelem(pos);
                     break;
                 case 24:
-                    PicPosition[23].Tag = "1";
-                    PicPosition[15].Tag = "1";
+                    PicPosition[22].Tag = "1";
+                    PicPosition[14].Tag = "1";
+                    pos[0] = 22;
+                    pos[1] = 14;
+
+                    vaneottelem(pos);
                     break;
 
                 default:
                     break;
             }
+
+            //a képek name-je 1 től megy 24 ig , DE a picPosition 0-23 ig
+            // meg náz a position int lista is 1 essel kezdődik és 24 essel ér véget
+            //a 0. elem az 1 es 
+            /*for (int i = 0; i < PicPosition.Length; i++)
+            {
+                if (PicPosition[i].Tag=="1")
+                {
+                    MessageBox.Show("Helyek ahol 1 es: "+i);
+                }
+            }*/
+        }
+
+        private void vaneottelem(int[] pos)
+        {
+           /* MessageBox.Show("Szinek 23 utolsó:" + szinek[23]);
+            MessageBox.Show("picPosition 23 utolsó tag: " + PicPosition[23].Tag);*/
+            for (int i = 0; i < pos.Length; i++)
+            {
+                if (pos[i]!=-1)
+                {
+                    if (szinek[pos[i]] == 0 || szinek[pos[i]] == 1)
+                    {
+                        PicPosition[pos[i]].Tag = "0";
+                    }
+                }
+                
+            }
+            if (letetelutan>0)
+            {
+                lerakas = true;
+            }
+            letetelutan++;
+            //Itt valamiért a szin 23: 0 ami miatt átváltódik a picpos 23 tag ja 0 vá
+           /* MessageBox.Show("A vaneottelem elkészült");
+            MessageBox.Show("Szinek 23 utolsó:" + szinek[23]);
+            MessageBox.Show("picPosition 23 utolsó tag: " + PicPosition[23].Tag);*/
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

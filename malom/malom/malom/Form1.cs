@@ -12,6 +12,11 @@ namespace malom
 {
     public partial class Form1 : Form
     {
+        public int r = 0;
+        public int g = 0;
+        public int b = 0;
+        public bool bgszinezvelettef1=false;
+        public bool lepesszinezve = false;
         static List<int> position = new List<int>();
         //static List<Panel> panelPosition = new List<Panel>();
         //PicturePos tömb, 0-24 ig a megfelelő indexű helyre(panel pos? vagy position) mindig hozzáadni picPos hoz 
@@ -64,7 +69,7 @@ namespace malom
             nev1txb.Visible = false;
             button1.Visible = false;
             button2.Visible = false;
-
+            button3.Visible = false;
         }
 
         private void vonalakgeneralas()
@@ -648,6 +653,7 @@ namespace malom
                         
                          kijon = 1;
                             kijonlbl.Text = "Mozgatás: " + nev2;
+                            szinektorlese();
                         }
 
                     }
@@ -664,6 +670,7 @@ namespace malom
                             
                              kijon = 0;
                             kijonlbl.Text = "Mozgatás: " + nev1;
+                            szinektorlese();
                         }
                         
                     }
@@ -683,6 +690,7 @@ namespace malom
                             klikkelt.Image = Image.FromFile("feher.png");
                             szinek[iduj - 1] = 0; 
                             kijonlbl.Text = "Letevés: " + nev2;
+                            szinektorlese();
                         }
                         else
                         {
@@ -690,6 +698,7 @@ namespace malom
                             klikkelt.Image = Image.FromFile("fekete.png");
                             szinek[iduj - 1] = 1;
                             kijonlbl.Text = "Letevés: " + nev1;
+                            szinektorlese();
                         }
                         letetel--;
 
@@ -713,6 +722,14 @@ namespace malom
             //ID zéssel bajok vannak
             //MessageBox.Show("" + PicPosition[1].Name);
             
+        }
+
+        private void szinektorlese()
+        {
+            for (int i = 0; i <24; i++)
+            {
+                PicPosition[i].BackColor = Color.Red;
+            }
         }
 
         private void hovamozoghat(int id)
@@ -999,9 +1016,20 @@ namespace malom
                 }
                 
             }
+            
             if (letetelutan>0)
             {
                 lerakas = true;
+                if (lepesszinezve)
+                {
+                    for (int i = 0; i < 24; i++)
+                    {
+                        if (PicPosition[i].Tag == "1")
+                        {
+                            PicPosition[i].BackColor = Color.Yellow;
+                        }
+                    }
+                }
             }
             letetelutan++;
             //Itt valamiért a szin 23: 0 ami miatt átváltódik a picpos 23 tag ja 0 vá
@@ -1017,6 +1045,11 @@ namespace malom
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
+            if(bgszinezvelettef1)
+            {
+                this.BackColor = Color.FromArgb(r, g, b);
+            }
+            
             panelekbordere();
         }
 
@@ -1030,14 +1063,154 @@ namespace malom
         private void button2_Click(object sender, EventArgs e)
         {
             inf info = new inf();
-           
-            this.Hide();
-            info.Show();
+            if (bgszinezvelettef1)
+            {
+                //MessageBox.Show("bg szinezve form 1");
+                this.Hide();
+                info.Show();
+                info.red = r;
+                info.green =b;
+                info.blue = g;
+                info.bgszinezveletteinf = true;
+                if(lepesszinezve)
+                {
+                   // MessageBox.Show("sziezvelépés");
+                info.lepesszinezveform1 = true;
+                }
+                else
+                {
+                    info.lepesszinezveform1 = false;
+                }
+                info.BackColor = Color.FromArgb(r, g, b);
+            }
+            else
+            {
+                this.Hide();
+                info.Show();
+                if (lepesszinezve)
+                {
+                   // MessageBox.Show("sziezvelépés");
+                    info.lepesszinezveform1 = true;
+                }
+                else
+                {
+                    info.lepesszinezveform1 = false;
+                }
+            }
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            beállítások beallit = new beállítások();
+
+            if (bgszinezvelettef1)
+            {
+                MessageBox.Show("bg szinezve form 1");
+                this.Hide();
+                beallit.Show();
+                beallit.r = r;
+                beallit.g = b;
+                beallit.b = g;
+                beallit.bgszinezvelettebeall = true;
+                if (lepesszinezve)
+                {
+                    // MessageBox.Show("sziezvelépés");
+                    beallit.szines = true;
+                }
+                else
+                {
+                    beallit.szines = false;
+                }
+                beallit.BackColor = Color.FromArgb(r, g, b);
+            }
+            else
+            {
+                this.Hide();
+                beallit.Show();
+                beallit.bgszinezvelettebeall = false;
+                if (lepesszinezve)
+                {
+                    // MessageBox.Show("sziezvelépés");
+                    beallit.szines = true;
+                }
+                else
+                {
+                    beallit.szines = false;
+                }
+            }
+        }
+
+        private void button1_DragEnter(object sender, DragEventArgs e)
+        {
+           
+        }
+
+        private void button1_DragLeave(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.Black;
+            button1.ForeColor = Color.White;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.Transparent;
+            button1.ForeColor = Color.Black;
+        }
+          private void button2_MouseEnter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button2_MouseEnter_1(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.Black;
+            button2.ForeColor = Color.White;
+        }
+
+        private void button2_MouseLeave_1(object sender, EventArgs e)
+        {
+            button2.BackColor = Color.Transparent;
+            button2.ForeColor = Color.Black;
+        }
+
+        private void button3_MouseEnter(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.Black;
+            button3.ForeColor = Color.White;
+        }
+
+        private void button3_MouseLeave(object sender, EventArgs e)
+        {
+            button3.BackColor = Color.Transparent;
+            button3.ForeColor = Color.Black;
+        }
+
+        private void bezarbtn_MouseEnter(object sender, EventArgs e)
+        {
+            bezarbtn.BackColor = Color.Black;
+            bezarbtn.ForeColor = Color.White;
+        }
+
+        private void bezarbtn_MouseLeave(object sender, EventArgs e)
+        {
+            bezarbtn.BackColor = Color.Transparent;
+            bezarbtn.ForeColor = Color.Black;
         }
     }
 }

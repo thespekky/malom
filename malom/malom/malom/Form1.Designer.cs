@@ -37,6 +37,7 @@ namespace malom
             this.kulsopanel = new System.Windows.Forms.Panel();
             this.kozepsopanel = new System.Windows.Forms.Panel();
             this.belsopanel = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.kijonlbl = new System.Windows.Forms.Label();
             this.bezarbtn = new System.Windows.Forms.Button();
@@ -81,13 +82,18 @@ namespace malom
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.Location = new System.Drawing.Point(102, 16);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 52);
             this.button1.TabIndex = 4;
             this.button1.Text = "Start";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.DragEnter += new System.Windows.Forms.DragEventHandler(this.button1_DragEnter);
+            this.button1.DragLeave += new System.EventHandler(this.button1_DragLeave);
+            this.button1.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
+            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             // 
             // kulsopanel
             // 
@@ -115,12 +121,25 @@ namespace malom
             // belsopanel
             // 
             this.belsopanel.BackColor = System.Drawing.Color.Transparent;
+            this.belsopanel.Controls.Add(this.button3);
             this.belsopanel.Controls.Add(this.button2);
             this.belsopanel.Controls.Add(this.button1);
             this.belsopanel.Location = new System.Drawing.Point(60, 60);
             this.belsopanel.Name = "belsopanel";
             this.belsopanel.Size = new System.Drawing.Size(280, 200);
             this.belsopanel.TabIndex = 7;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(102, 132);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 52);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "beállítások";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.MouseEnter += new System.EventHandler(this.button3_MouseEnter);
+            this.button3.MouseLeave += new System.EventHandler(this.button3_MouseLeave);
             // 
             // button2
             // 
@@ -131,12 +150,14 @@ namespace malom
             this.button2.Text = "Információ";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.MouseEnter += new System.EventHandler(this.button2_MouseEnter_1);
+            this.button2.MouseLeave += new System.EventHandler(this.button2_MouseLeave_1);
             // 
             // kijonlbl
             // 
             this.kijonlbl.AutoSize = true;
-            this.kijonlbl.BackColor = System.Drawing.Color.Transparent;
-            this.kijonlbl.Location = new System.Drawing.Point(321, 13);
+            this.kijonlbl.BackColor = System.Drawing.Color.White;
+            this.kijonlbl.Location = new System.Drawing.Point(353, 12);
             this.kijonlbl.Name = "kijonlbl";
             this.kijonlbl.Size = new System.Drawing.Size(29, 13);
             this.kijonlbl.TabIndex = 6;
@@ -152,6 +173,8 @@ namespace malom
             this.bezarbtn.Text = "Bezár";
             this.bezarbtn.UseVisualStyleBackColor = true;
             this.bezarbtn.Click += new System.EventHandler(this.button4_Click);
+            this.bezarbtn.MouseEnter += new System.EventHandler(this.bezarbtn_MouseEnter);
+            this.bezarbtn.MouseLeave += new System.EventHandler(this.bezarbtn_MouseLeave);
             // 
             // pictureBox1
             // 
@@ -206,6 +229,7 @@ namespace malom
         private System.Windows.Forms.Label kijonlbl;
         private System.Windows.Forms.Button bezarbtn;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button3;
     }
 }
 

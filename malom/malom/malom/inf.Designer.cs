@@ -54,6 +54,8 @@ namespace malom
             this.visszabtn.Text = "Vissza";
             this.visszabtn.UseVisualStyleBackColor = true;
             this.visszabtn.Click += new System.EventHandler(this.visszabtn_Click);
+            this.visszabtn.MouseEnter += new System.EventHandler(this.visszabtn_MouseEnter);
+            this.visszabtn.MouseLeave += new System.EventHandler(this.visszabtn_MouseLeave);
             // 
             // eventLog1
             // 
@@ -116,19 +118,26 @@ namespace malom
             // 
             // korong1
             // 
-            this.korong1.Location = new System.Drawing.Point(131, 369);
+            this.korong1.BackColor = System.Drawing.Color.Red;
+            this.korong1.Image = ((System.Drawing.Image)(resources.GetObject("korong1.Image")));
+            this.korong1.Location = new System.Drawing.Point(131, 355);
             this.korong1.Name = "korong1";
-            this.korong1.Size = new System.Drawing.Size(39, 28);
+            this.korong1.Size = new System.Drawing.Size(42, 42);
+            this.korong1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.korong1.TabIndex = 7;
             this.korong1.TabStop = false;
             // 
             // krong2
             // 
-            this.krong2.Location = new System.Drawing.Point(300, 369);
+            this.krong2.BackColor = System.Drawing.Color.Red;
+            this.krong2.Image = ((System.Drawing.Image)(resources.GetObject("krong2.Image")));
+            this.krong2.Location = new System.Drawing.Point(300, 355);
             this.krong2.Name = "krong2";
-            this.krong2.Size = new System.Drawing.Size(39, 28);
+            this.krong2.Size = new System.Drawing.Size(45, 42);
+            this.krong2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.krong2.TabIndex = 8;
             this.krong2.TabStop = false;
+            this.krong2.Click += new System.EventHandler(this.krong2_Click);
             // 
             // inf
             // 

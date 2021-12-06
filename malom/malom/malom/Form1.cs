@@ -626,7 +626,12 @@ namespace malom
             
             PictureBox klikkelt = sender as PictureBox;
             int iduj = Convert.ToInt32(klikkelt.Name);
-            
+            //ha rosszat választunk ki 2 szer akkor kiakad
+            //vagy ha többször oda kapcsolunk
+            //vagy nemtudom de valamiért néha kiakad
+
+            //a 2-3 szor rákapcsolunk ugyan arra és áttesszük az új helyre
+            //a név hogy ki jön átválltódik, de semmi sem történik ajátéktéren
             if (lerakas)
             {
                 //MessageBox.Show("Lerakásban vagyunk az előző kattintás id je: " + honnan);
@@ -674,8 +679,17 @@ namespace malom
                         }
                         
                     }
+                    lerakas = false;
                 }
-                lerakas = false;
+                else
+                {
+                    //ha ahova kapcsolt a tagja 0(nem tud oda lépni)
+                    lerakas = true;
+                    //talán ez jó lesz de ez csak 1 tipp
+                    //ahová 1 ször kapcsoltunk az jön majd a 3. után kiválasztott üres helyre
+                    hovamozoghat(iduj);
+                }
+                
                
             }
             else

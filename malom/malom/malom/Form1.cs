@@ -12,9 +12,9 @@ namespace malom
 {
     public partial class Form1 : Form
     {
-        public int r = 0;
-        public int g = 0;
-        public int b = 0;
+        public int rr = 0;
+        public int gg = 0;
+        public int bb = 0;
         public bool bgszinezvelettef1=false;
         public bool lepesszinezve = false;
         static List<int> position = new List<int>();
@@ -1047,7 +1047,7 @@ namespace malom
         {
             if(bgszinezvelettef1)
             {
-                this.BackColor = Color.FromArgb(r, g, b);
+                this.BackColor = Color.FromArgb(rr, gg, bb);
             }
             
             panelekbordere();
@@ -1065,12 +1065,13 @@ namespace malom
             inf info = new inf();
             if (bgszinezvelettef1)
             {
-                //MessageBox.Show("bg szinezve form 1");
+                
                 this.Hide();
+                info.BackColor = Color.FromArgb(rr, gg, bb);
                 info.Show();
-                info.red = r;
-                info.green =b;
-                info.blue = g;
+                info.red = rr;
+                info.green =gg;
+                info.blue = bb;
                 info.bgszinezveletteinf = true;
                 if(lepesszinezve)
                 {
@@ -1081,7 +1082,7 @@ namespace malom
                 {
                     info.lepesszinezveform1 = false;
                 }
-                info.BackColor = Color.FromArgb(r, g, b);
+                //info.BackColor = Color.FromArgb(r, g, b);
             }
             else
             {
@@ -1111,12 +1112,13 @@ namespace malom
 
             if (bgszinezvelettef1)
             {
-                MessageBox.Show("bg szinezve form 1");
+              
                 this.Hide();
+                beallit.BackColor = Color.FromArgb(rr, gg, bb);               
                 beallit.Show();
-                beallit.r = r;
-                beallit.g = b;
-                beallit.b = g;
+                beallit.r = rr;
+                beallit.b = bb;
+                beallit.g = gg;
                 beallit.bgszinezvelettebeall = true;
                 if (lepesszinezve)
                 {
@@ -1127,7 +1129,8 @@ namespace malom
                 {
                     beallit.szines = false;
                 }
-                beallit.BackColor = Color.FromArgb(r, g, b);
+                
+                
             }
             else
             {
@@ -1146,71 +1149,61 @@ namespace malom
             }
         }
 
-        private void button1_DragEnter(object sender, DragEventArgs e)
-        {
-           
-        }
-
-        private void button1_DragLeave(object sender, EventArgs e)
-        {
-           
-        }
-
         private void button1_MouseEnter(object sender, EventArgs e)
         {
             button1.BackColor = Color.Black;
             button1.ForeColor = Color.White;
+            button1.Font = new Font("Arial",12,FontStyle.Bold);
         }
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
             button1.BackColor = Color.Transparent;
             button1.ForeColor = Color.Black;
-        }
-          private void button2_MouseEnter(object sender, EventArgs e)
-        {
-            
+            button1.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
 
-        private void button2_MouseLeave(object sender, EventArgs e)
-        {
-            
-        }
 
         private void button2_MouseEnter_1(object sender, EventArgs e)
         {
             button2.BackColor = Color.Black;
             button2.ForeColor = Color.White;
+            button2.Font = new Font("Arial", 12, FontStyle.Bold);
         }
 
         private void button2_MouseLeave_1(object sender, EventArgs e)
         {
             button2.BackColor = Color.Transparent;
             button2.ForeColor = Color.Black;
+            button2.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
 
         private void button3_MouseEnter(object sender, EventArgs e)
         {
             button3.BackColor = Color.Black;
             button3.ForeColor = Color.White;
+            button3.Font = new Font("Arial", 12, FontStyle.Bold);
         }
 
         private void button3_MouseLeave(object sender, EventArgs e)
         {
             button3.BackColor = Color.Transparent;
             button3.ForeColor = Color.Black;
+            button3.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
 
         private void bezarbtn_MouseEnter(object sender, EventArgs e)
         {
             bezarbtn.BackColor = Color.Black;
             bezarbtn.ForeColor = Color.White;
+            bezarbtn.Font = new Font("Arial", 12, FontStyle.Bold);
         }
 
         private void bezarbtn_MouseLeave(object sender, EventArgs e)
         {
             bezarbtn.BackColor = Color.Transparent;
             bezarbtn.ForeColor = Color.Black;
+            bezarbtn.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
     }
 }

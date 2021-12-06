@@ -49,7 +49,7 @@
             // 
             this.vissza.Location = new System.Drawing.Point(30, 27);
             this.vissza.Name = "vissza";
-            this.vissza.Size = new System.Drawing.Size(75, 23);
+            this.vissza.Size = new System.Drawing.Size(82, 31);
             this.vissza.TabIndex = 0;
             this.vissza.Text = "Vissza";
             this.vissza.UseVisualStyleBackColor = true;
@@ -134,9 +134,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(328, 514);
+            this.button1.Location = new System.Drawing.Point(328, 502);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(78, 40);
+            this.button1.Size = new System.Drawing.Size(108, 54);
             this.button1.TabIndex = 9;
             this.button1.Text = "Alkalmazás";
             this.button1.UseVisualStyleBackColor = true;
@@ -193,7 +193,7 @@
             // 
             this.button4.Location = new System.Drawing.Point(300, 270);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(151, 36);
+            this.button4.Size = new System.Drawing.Size(165, 54);
             this.button4.TabIndex = 14;
             this.button4.Text = "Csak lépés szinezése";
             this.button4.UseVisualStyleBackColor = true;

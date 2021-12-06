@@ -28,11 +28,11 @@ namespace malom
             if(bgszinezveletteinf)
             {
                 this.Close();
-                form.Show();
-                form.r = red;
-                form.g = green;
-                form.b = blue;
                 form.BackColor = Color.FromArgb(red, green, blue);
+                form.Show();
+                form.rr = red;
+                form.gg = green;
+                form.bb = blue;
                 form.bgszinezvelettef1 = true;
                 if(lepesszinezveform1)
                 {
@@ -82,12 +82,14 @@ namespace malom
         {
             visszabtn.BackColor = Color.Black;
             visszabtn.ForeColor = Color.White;
+            visszabtn.Font = new Font("Arial", 12, FontStyle.Bold);
         }
 
         private void visszabtn_MouseLeave(object sender, EventArgs e)
         {
             visszabtn.BackColor = Color.Transparent;
             visszabtn.ForeColor = Color.Black;
+            visszabtn.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
     }
 }

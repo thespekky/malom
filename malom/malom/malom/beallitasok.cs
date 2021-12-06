@@ -30,11 +30,12 @@ namespace malom
             if(bgszinezvelettebeall)
             { 
             this.Close();
-            form.Show();
-            form.BackColor = Color.FromArgb(r, g, b);
-            form.r = r;
-            form.g = g;
-            form.b = b;
+                form.BackColor = Color.FromArgb(r, g, b);
+                form.Show();
+           
+            form.rr = r;
+            form.gg = g;
+            form.bb = b;
             if (szines)
             {
                 form.lepesszinezve = true;
@@ -49,7 +50,7 @@ namespace malom
                 {
                     form.lepesszinezve = true;
                 }
-                form.bgszinezvelettef1 = true;
+                form.bgszinezvelettef1 = false;
             }
         }
 
@@ -103,11 +104,12 @@ namespace malom
             b = Bscrollbar.Value;
             Form1 form = new Form1();
             this.Close();
+            form.BackColor = Color.FromArgb(r, g, b);
             form.Show();
-            form.BackColor = Color.FromArgb(r,g,b);
-            form.r = r;
-            form.g = g;
-            form.b = b;
+
+            form.rr = r;
+            form.gg = g;
+            form.bb = b;
             if (szines)
             {
                 form.lepesszinezve = true;
@@ -144,60 +146,70 @@ namespace malom
         {
             vissza.BackColor = Color.Black;
             vissza.ForeColor = Color.White;
+            vissza.Font = new Font("Arial", 12, FontStyle.Bold);
         }
 
         private void vissza_MouseLeave(object sender, EventArgs e)
         {
             vissza.BackColor = Color.Transparent;
             vissza.ForeColor = Color.Black;
+            vissza.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
 
         private void button2_MouseEnter(object sender, EventArgs e)
         {
             button2.BackColor = Color.Black;
             button2.ForeColor = Color.White;
+            button2.Font = new Font("Arial", 12, FontStyle.Bold);
         }
 
         private void button2_MouseLeave(object sender, EventArgs e)
         {
             button2.BackColor = Color.Transparent;
             button2.ForeColor = Color.Black;
+            button2.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
 
         private void button3_MouseEnter(object sender, EventArgs e)
         {
             button3.BackColor = Color.Black;
             button3.ForeColor = Color.White;
+            button3.Font = new Font("Arial", 12, FontStyle.Bold);
         }
 
         private void button3_MouseLeave(object sender, EventArgs e)
         {
             button3.BackColor = Color.Transparent;
             button3.ForeColor = Color.Black;
+            button3.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
 
         private void button4_MouseEnter(object sender, EventArgs e)
         {
             button4.BackColor = Color.Black;
             button4.ForeColor = Color.White;
+            button4.Font = new Font("Arial", 12, FontStyle.Bold);
         }
 
         private void button4_MouseLeave(object sender, EventArgs e)
         {
             button4.BackColor = Color.Transparent;
             button4.ForeColor = Color.Black;
+            button4.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
 
         private void button1_MouseEnter(object sender, EventArgs e)
         {
             button1.BackColor = Color.Black;
             button1.ForeColor = Color.White;
+            button1.Font = new Font("Arial", 12, FontStyle.Bold);
         }
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
             button1.BackColor = Color.Transparent;
             button1.ForeColor = Color.Black;
+            button1.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
     }
 }

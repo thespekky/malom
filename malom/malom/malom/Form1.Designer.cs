@@ -65,18 +65,22 @@ namespace malom
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(81, 6);
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(39, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.Size = new System.Drawing.Size(135, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "első játékos neve:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(61, 32);
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(9, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 13);
+            this.label2.Size = new System.Drawing.Size(165, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "második játékos neve:";
             // 
@@ -85,13 +89,11 @@ namespace malom
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.Location = new System.Drawing.Point(102, 16);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 52);
+            this.button1.Size = new System.Drawing.Size(99, 52);
             this.button1.TabIndex = 4;
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.DragEnter += new System.Windows.Forms.DragEventHandler(this.button1_DragEnter);
-            this.button1.DragLeave += new System.EventHandler(this.button1_DragLeave);
             this.button1.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
             this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
             // 
@@ -133,7 +135,7 @@ namespace malom
             // 
             this.button3.Location = new System.Drawing.Point(102, 132);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 52);
+            this.button3.Size = new System.Drawing.Size(99, 52);
             this.button3.TabIndex = 6;
             this.button3.Text = "beállítások";
             this.button3.UseVisualStyleBackColor = true;
@@ -145,7 +147,7 @@ namespace malom
             // 
             this.button2.Location = new System.Drawing.Point(102, 74);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 52);
+            this.button2.Size = new System.Drawing.Size(99, 52);
             this.button2.TabIndex = 5;
             this.button2.Text = "Információ";
             this.button2.UseVisualStyleBackColor = true;
@@ -166,9 +168,9 @@ namespace malom
             // 
             // bezarbtn
             // 
-            this.bezarbtn.Location = new System.Drawing.Point(694, 12);
+            this.bezarbtn.Location = new System.Drawing.Point(685, 12);
             this.bezarbtn.Name = "bezarbtn";
-            this.bezarbtn.Size = new System.Drawing.Size(75, 23);
+            this.bezarbtn.Size = new System.Drawing.Size(84, 34);
             this.bezarbtn.TabIndex = 7;
             this.bezarbtn.Text = "Bezár";
             this.bezarbtn.UseVisualStyleBackColor = true;

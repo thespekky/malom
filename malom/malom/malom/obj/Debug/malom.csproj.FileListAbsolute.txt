@@ -84,3 +84,15 @@ D:\András\GIT\malom\malom\malom\malom\obj\Debug\malom.csproj.CoreCompileInputs.
 D:\András\GIT\malom\malom\malom\malom\obj\Debug\malom.exe
 D:\András\GIT\malom\malom\malom\malom\obj\Debug\malom.pdb
 D:\András\GIT\malom\malom\malom\malom\obj\Debug\malom.beállítások.resources
+D:\Github_Bodnar_andras\malom2\malom\malom\malom\bin\Debug\malom.exe.config
+D:\Github_Bodnar_andras\malom2\malom\malom\malom\bin\Debug\malom.exe
+D:\Github_Bodnar_andras\malom2\malom\malom\malom\bin\Debug\malom.pdb
+D:\Github_Bodnar_andras\malom2\malom\malom\malom\obj\Debug\malom.csproj.AssemblyReference.cache
+D:\Github_Bodnar_andras\malom2\malom\malom\malom\obj\Debug\malom.beállítások.resources
+D:\Github_Bodnar_andras\malom2\malom\malom\malom\obj\Debug\malom.Form1.resources
+D:\Github_Bodnar_andras\malom2\malom\malom\malom\obj\Debug\malom.inf.resources
+D:\Github_Bodnar_andras\malom2\malom\malom\malom\obj\Debug\malom.Properties.Resources.resources
+D:\Github_Bodnar_andras\malom2\malom\malom\malom\obj\Debug\malom.csproj.GenerateResource.cache
+D:\Github_Bodnar_andras\malom2\malom\malom\malom\obj\Debug\malom.csproj.CoreCompileInputs.cache
+D:\Github_Bodnar_andras\malom2\malom\malom\malom\obj\Debug\malom.exe
+D:\Github_Bodnar_andras\malom2\malom\malom\malom\obj\Debug\malom.pdb

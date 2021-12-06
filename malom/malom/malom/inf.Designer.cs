@@ -49,7 +49,7 @@ namespace malom
             // 
             this.visszabtn.Location = new System.Drawing.Point(30, 27);
             this.visszabtn.Name = "visszabtn";
-            this.visszabtn.Size = new System.Drawing.Size(75, 23);
+            this.visszabtn.Size = new System.Drawing.Size(84, 34);
             this.visszabtn.TabIndex = 0;
             this.visszabtn.Text = "Vissza";
             this.visszabtn.UseVisualStyleBackColor = true;

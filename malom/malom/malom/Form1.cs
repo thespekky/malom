@@ -792,7 +792,227 @@ namespace malom
                             //MessageBox.Show(" malom függőleges");
                         }
                         break;
-                }
+                    case 4:
+                        if (szinek[3] == kijon && szinek[4] == kijon && szinek[5] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[2] == kijon && szinek[14] == kijon && szinek[23] == kijon)
+                        {
+                            // MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 5:
+                        if (szinek[3] == kijon && szinek[4] == kijon && szinek[5] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[5] == kijon && szinek[13] == kijon && szinek[20] == kijon)
+                        {
+                            //MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 6:
+                        if (szinek[6] == kijon && szinek[7] == kijon && szinek[8] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[6] == kijon && szinek[11] == kijon && szinek[15] == kijon)
+                        {
+                            //MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 7:
+                        if (szinek[6] == kijon && szinek[7] == kijon && szinek[8] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[1] == kijon && szinek[4] == kijon && szinek[7] == kijon)
+                        {
+                            //MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 8:
+                        if (szinek[6] == kijon && szinek[7] == kijon && szinek[8] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[8] == kijon && szinek[12] == kijon && szinek[17] == kijon)
+                        {
+                            //MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 9:
+                        if (szinek[9] == kijon && szinek[10] == kijon && szinek[11] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[ide] == kijon && szinek[9] == kijon && szinek[21] == kijon)
+                        {
+                            //MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 10:
+                        if (szinek[9] == kijon && szinek[10] == kijon && szinek[11] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[3] == kijon && szinek[10] == kijon && szinek[18] == kijon)
+                        {
+                            //MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 11:
+                        if (szinek[9] == kijon && szinek[10] == kijon && szinek[11] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[6] == kijon && szinek[11] == kijon && szinek[15] == kijon)
+                        {
+                            //MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 12:
+                        if (szinek[12] == kijon && szinek[13] == kijon && szinek[14] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[8] == kijon && szinek[12] == kijon && szinek[17] == kijon)
+                        {
+                            //MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 13:
+                        if (szinek[12] == kijon && szinek[13] == kijon && szinek[14] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[5] == kijon && szinek[13] == kijon && szinek[20] == kijon)
+                        {
+                            //MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 14:
+                        if (szinek[12] == kijon && szinek[13] == kijon && szinek[14] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[2] == kijon && szinek[14] == kijon && szinek[23] == kijon)
+                        {
+                            // MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 15:
+                        if (szinek[15] == kijon && szinek[16] == kijon && szinek[17] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[6] == kijon && szinek[11] == kijon && szinek[15] == kijon)
+                        {
+                            //MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 16:
+                        if (szinek[15] == kijon && szinek[16] == kijon && szinek[17] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[19] == kijon && szinek[22] == kijon && szinek[16] == kijon)
+                        {
+                            //MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 17:
+                        if (szinek[15] == kijon && szinek[16] == kijon && szinek[17] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[8] == kijon && szinek[12] == kijon && szinek[17] == kijon)
+                        {
+                            //MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 18:
+                        if (szinek[18] == kijon && szinek[19] == kijon && szinek[20] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[3] == kijon && szinek[10] == kijon && szinek[18] == kijon)
+                        {
+                            //MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 19:
+                        if (szinek[18] == kijon && szinek[19] == kijon && szinek[20] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[19] == kijon && szinek[22] == kijon && szinek[16] == kijon)
+                        {
+                            //MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 20:
+                        if (szinek[18] == kijon && szinek[19] == kijon && szinek[20] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[5] == kijon && szinek[13] == kijon && szinek[20] == kijon)
+                        {
+                            //MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 21:
+                        if (szinek[21] == kijon && szinek[22] == kijon && szinek[23] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[ide] == kijon && szinek[9] == kijon && szinek[21] == kijon)
+                        {
+                            //MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 22:
+                        if (szinek[21] == kijon && szinek[22] == kijon && szinek[23] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[19] == kijon && szinek[22] == kijon && szinek[16] == kijon)
+                        {
+                            //MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+                    case 23:
+                        if (szinek[21] == kijon && szinek[22] == kijon && szinek[23] == kijon)
+                        {
+                            //MessageBox.Show(" malom vízszintes");
+                        }
+                        //függőleges nézés
+                        if (szinek[2] == kijon && szinek[14] == kijon && szinek[23] == kijon)
+                        {
+                            // MessageBox.Show(" malom függőleges");
+                        }
+                        break;
+            }
             
         }
 

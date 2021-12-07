@@ -108,3 +108,15 @@ D:\GITHUB\214szft\malom5\malom\malom\malom\obj\Debug\malom.csproj.GenerateResour
 D:\GITHUB\214szft\malom5\malom\malom\malom\obj\Debug\malom.csproj.CoreCompileInputs.cache
 D:\GITHUB\214szft\malom5\malom\malom\malom\obj\Debug\malom.exe
 D:\GITHUB\214szft\malom5\malom\malom\malom\obj\Debug\malom.pdb
+C:\Users\fiuk\Source\Repos\malom\malom\malom\malom\bin\Debug\malom.exe.config
+C:\Users\fiuk\Source\Repos\malom\malom\malom\malom\bin\Debug\malom.exe
+C:\Users\fiuk\Source\Repos\malom\malom\malom\malom\bin\Debug\malom.pdb
+C:\Users\fiuk\Source\Repos\malom\malom\malom\malom\obj\Debug\malom.csprojAssemblyReference.cache
+C:\Users\fiuk\Source\Repos\malom\malom\malom\malom\obj\Debug\malom.beállítások.resources
+C:\Users\fiuk\Source\Repos\malom\malom\malom\malom\obj\Debug\malom.Form1.resources
+C:\Users\fiuk\Source\Repos\malom\malom\malom\malom\obj\Debug\malom.inf.resources
+C:\Users\fiuk\Source\Repos\malom\malom\malom\malom\obj\Debug\malom.Properties.Resources.resources
+C:\Users\fiuk\Source\Repos\malom\malom\malom\malom\obj\Debug\malom.csproj.GenerateResource.cache
+C:\Users\fiuk\Source\Repos\malom\malom\malom\malom\obj\Debug\malom.csproj.CoreCompileInputs.cache
+C:\Users\fiuk\Source\Repos\malom\malom\malom\malom\obj\Debug\malom.exe
+C:\Users\fiuk\Source\Repos\malom\malom\malom\malom\obj\Debug\malom.pdb

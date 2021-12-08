@@ -32,6 +32,7 @@ namespace malom
         static int honnan = 0;
         static int letetelutan = 0;
         static int kijon = 0;
+        static bool malome = false;
         public Form1()
         {
             InitializeComponent();
@@ -634,108 +635,195 @@ namespace malom
 
             //a 2-3 szor rákapcsolunk ugyan arra és áttesszük az új helyre
             //a név hogy ki jön átválltódik, de semmi sem történik ajátéktéren
-            if (lerakas)
+            if (malome)
             {
-                //MessageBox.Show("Lerakásban vagyunk az előző kattintás id je: " + honnan);
-                //ugyan oda kapcsolt
-                if (honnan==iduj+1)
-                {
-                    lerakas = false;
-                }
-                if (PicPosition[iduj-1].Tag=="1")
-                {
-                    //puictureboxok id jét át kéne váltani?
-                    // ha nincs ott semmi akkor csak simán tegye bele
-                    
-                    if (szinek[honnan]==0)
-                    {
-                        if (kijon==0)
-                        {
-                        klikkelt.Image = Image.FromFile("feher.png");
-                        PicPosition[honnan].Image = null;
-                        PicPosition[honnan].Tag = "0";
-                        szinek[iduj - 1] = 0;
-                        szinek[honnan] = -1;
-                            //MessageBox.Show("Elivleg kész a képváltás!");
-                            malomellenorzes(iduj-1,kijon);
-                            kijon = 1;
-                            kijonlbl.Text = "Mozgatás: " + nev2;
-                            szinektorlese();
-                        }
-
-                    }
-                    if (szinek[honnan] == 1)
-                    {
-                        if (kijon==1)
-                        {
-                            klikkelt.Image = Image.FromFile("fekete.png");
-                            PicPosition[honnan].Image = null;
-                            PicPosition[honnan].Tag = "0";
-                            szinek[iduj - 1] = 1;
-                            szinek[honnan] = -1;
-                            //MessageBox.Show("Elivleg kész a képváltás!");
-                            malomellenorzes(iduj - 1, kijon);
-                            kijon = 0;
-                            kijonlbl.Text = "Mozgatás: " + nev1;
-                            szinektorlese();
-                        }
-                        
-                    }
-                    lerakas = false;
-                }
-                else
-                {
-                    //ha ahova kapcsolt a tagja 0(nem tud oda lépni)
-                    lerakas = true;
-                    //talán ez jó lesz de ez csak 1 tipp
-                    //ahová 1 ször kapcsoltunk az jön majd a 3. után kiválasztott üres helyre
-                    hovamozoghat(iduj);
-                }
                 
-               
+                if (kijon==0)
+                {
+                    if (szinek[iduj-1]==1)
+                    {
+                        szinek[iduj - 1] = -1;
+                        
+                        PicPosition[iduj-1].Image =null;
+                        PicPosition[iduj-1].Tag = "";
+                        klikkelt.Image = null;
+                        klikkelt.Tag = "";
+                        
+                        malome = false;
+                    }
+                }
+                if (kijon == 1)
+                {
+                    if (szinek[iduj - 1] == 0)
+                    {
+                        szinek[iduj - 1] = -1;
+
+                        PicPosition[iduj - 1].Image = null;
+                        PicPosition[iduj - 1].Tag = "";
+                        klikkelt.Image = null;
+                        klikkelt.Tag = "";
+                        
+                        malome = false;
+                    }
+                }
             }
             else
             {
-                if (szinek[iduj - 1] == -1)
+                if (lerakas)
                 {
-                    if (letetel > 0)
+                    //MessageBox.Show("Lerakásban vagyunk az előző kattintás id je: " + honnan);
+                    //ugyan oda kapcsolt
+                    if (honnan == iduj + 1)
                     {
-                        if (szin == 0)
+                        lerakas = false;
+                    }
+                    if (PicPosition[iduj - 1].Tag == "1")
+                    {
+                        //puictureboxok id jét át kéne váltani?
+                        // ha nincs ott semmi akkor csak simán tegye bele
+
+                        if (szinek[honnan] == 0)
                         {
-                            szin = 1;
-                            klikkelt.Image = Image.FromFile("feher.png");
-                            szinek[iduj - 1] = 0; 
-                            kijonlbl.Text = "Letevés: " + nev2;
-                            szinektorlese();
+                            if (kijon == 0)
+                            {
+                                klikkelt.Image = Image.FromFile("feher.png");
+                                PicPosition[honnan].Image = null;
+                                PicPosition[honnan].Tag = "0";
+                                szinek[iduj - 1] = 0;
+                                szinek[honnan] = -1;
+                                //MessageBox.Show("Elivleg kész a képváltás!");
+                                malomellenorzes(iduj - 1, kijon);
+                                kijon = 1;
+                                if (!malome)
+                                {
+                                    kijonlbl.Text = "Mozgatás: " + nev2;
+                                }
+                                else
+                                {
+
+                                    kijonlbl.Text = "MALOM! Leszedés következik!";
+                                }
+
+                                szinektorlese();
+                            }
 
                         }
-                        else
+                        if (szinek[honnan] == 1)
                         {
-                            szin = 0;
-                            klikkelt.Image = Image.FromFile("fekete.png");
-                            szinek[iduj - 1] = 1;
-                            kijonlbl.Text = "Letevés: " + nev1;
-                            szinektorlese();
+                            if (kijon == 1)
+                            {
+                                klikkelt.Image = Image.FromFile("fekete.png");
+                                PicPosition[honnan].Image = null;
+                                PicPosition[honnan].Tag = "0";
+                                szinek[iduj - 1] = 1;
+                                szinek[honnan] = -1;
+                                //MessageBox.Show("Elivleg kész a képváltás!");
+                                malomellenorzes(iduj - 1, kijon);
+                                kijon = 0;
+                                if (!malome)
+                                {
+
+                                    kijonlbl.Text = "Mozgatás: " + nev1;
+                                }
+                                else
+                                {
+
+                                    kijonlbl.Text = "MALOM! Leszedés következik!";
+                                }
+
+                                szinektorlese();
+                            }
 
                         }
-                        letetel--;
-
+                        lerakas = false;
                     }
-                    if (letetel == 0)
+                    else
                     {
-                        kijonlbl.Text = "Mozgatás: "+nev1;
-                        kijonlbl.Visible = true;
-                        mozgatas = true;
+                        //ha ahova kapcsolt a tagja 0(nem tud oda lépni)
+                        lerakas = true;
+                        //talán ez jó lesz de ez csak 1 tipp
+                        //ahová 1 ször kapcsoltunk az jön majd a 3. után kiválasztott üres helyre
+                        hovamozoghat(iduj);
                     }
+
+
                 }
-                if (mozgatas == true)
+                else
                 {
-                    //MessageBox.Show("klikkelt name: " + iduj);
-                    // ez nem a nevét tárolja hanem a pozícióját a színek és a PicPos tömbön belül
-                    honnan = iduj-1;
-                    hovamozoghat(iduj);
+                    if (szinek[iduj - 1] == -1)
+                    {
+                        if (letetel > 0)
+                        {
+                            if (szin == 0)
+                            {
+                                szin = 1;
+                                klikkelt.Image = Image.FromFile("feher.png");
+                                szinek[iduj - 1] = 0;
+                                //kijonlbl.Text = "Letevés: " + nev2;
+                                kijon = 0;
+                                malomellenorzes(iduj - 1, kijon);
+
+                                if (!malome)
+                                {
+                                    kijonlbl.Text = "Letétel: " + nev2;
+                                }
+                                else
+                                {
+
+                                    kijonlbl.Text = "MALOM! Leszedés következik!" + nev2;
+                                    
+                                }
+
+                                szinektorlese();
+
+                            }
+
+
+
+                            else
+                            {
+                                szin = 0;
+                                klikkelt.Image = Image.FromFile("fekete.png");
+                                szinek[iduj - 1] = 1;
+                                kijon = 1;
+                                malomellenorzes(iduj - 1, kijon);
+
+                                if (!malome)
+                                {
+
+                                    kijonlbl.Text = "Letétel: " + nev1;
+                                }
+                                else
+                                {
+
+                                    kijonlbl.Text = "MALOM! Leszedés következik!" + nev1;
+                                    
+                                }
+
+                                //kijonlbl.Text = "Letevés: " + nev1;
+                                szinektorlese();
+
+                            }
+                            letetel--;
+
+                        }
+                        if (letetel == 0)
+                        {
+                            kijonlbl.Text = "Mozgatás: " + nev1;
+                            kijonlbl.Visible = true;
+                            mozgatas = true;
+                        }
+                    }
+                    if (mozgatas == true)
+                    {
+                        //MessageBox.Show("klikkelt name: " + iduj);
+                        // ez nem a nevét tárolja hanem a pozícióját a színek és a PicPos tömbön belül
+                        honnan = iduj - 1;
+                        hovamozoghat(iduj);
+                    }
                 }
             }
+            
             //MessageBox.Show("klikkelt name convertálás előtt: " +klikkelt.Name);
             //ID zéssel bajok vannak
             //MessageBox.Show("" + PicPosition[1].Name);
@@ -744,6 +832,7 @@ namespace malom
 
         private void malomellenorzes(int ide,int kijon)
         {
+            malome = false;
             //MessageBox.Show("ide: " + ide);
             //MessageBox.Show("ide értéke:" + szinek[ide]);
             // MessageBox.Show("feher");
@@ -752,264 +841,312 @@ namespace malom
                     case 0:
                         if(szinek[0]==kijon&&szinek[1]==kijon&&szinek[2]==kijon)
                         {
-                            //MessageBox.Show(" malom vízszintes");
+                        //MessageBox.Show(" malom vízszintes");
+                        malome = true;
                         }
-                        if (szinek[ide] == kijon && szinek[9] == kijon && szinek[21] == kijon)
+                        if (szinek[0] == kijon && szinek[9] == kijon && szinek[21] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 1:
                         if (szinek[0] == kijon && szinek[1] == kijon && szinek[2] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[1] == kijon && szinek[4] == kijon && szinek[7] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 2:
                         if (szinek[0] == kijon && szinek[1] == kijon && szinek[2] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[2] == kijon && szinek[14] == kijon && szinek[23] == kijon)
                         {
                            // MessageBox.Show(" malom függőleges");
+                           malome = true;
                         }
                         break;
                     case 3:
                         if (szinek[3] == kijon && szinek[4] == kijon && szinek[5] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[3] == kijon && szinek[10] == kijon && szinek[18] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 4:
                         if (szinek[3] == kijon && szinek[4] == kijon && szinek[5] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[2] == kijon && szinek[14] == kijon && szinek[23] == kijon)
                         {
                             // MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 5:
                         if (szinek[3] == kijon && szinek[4] == kijon && szinek[5] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[5] == kijon && szinek[13] == kijon && szinek[20] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 6:
                         if (szinek[6] == kijon && szinek[7] == kijon && szinek[8] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[6] == kijon && szinek[11] == kijon && szinek[15] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 7:
                         if (szinek[6] == kijon && szinek[7] == kijon && szinek[8] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[1] == kijon && szinek[4] == kijon && szinek[7] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 8:
                         if (szinek[6] == kijon && szinek[7] == kijon && szinek[8] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[8] == kijon && szinek[12] == kijon && szinek[17] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 9:
                         if (szinek[9] == kijon && szinek[10] == kijon && szinek[11] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
-                        if (szinek[ide] == kijon && szinek[9] == kijon && szinek[21] == kijon)
+                        if (szinek[0] == kijon && szinek[9] == kijon && szinek[21] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 10:
                         if (szinek[9] == kijon && szinek[10] == kijon && szinek[11] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[3] == kijon && szinek[10] == kijon && szinek[18] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 11:
                         if (szinek[9] == kijon && szinek[10] == kijon && szinek[11] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[6] == kijon && szinek[11] == kijon && szinek[15] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 12:
                         if (szinek[12] == kijon && szinek[13] == kijon && szinek[14] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[8] == kijon && szinek[12] == kijon && szinek[17] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 13:
                         if (szinek[12] == kijon && szinek[13] == kijon && szinek[14] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[5] == kijon && szinek[13] == kijon && szinek[20] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 14:
                         if (szinek[12] == kijon && szinek[13] == kijon && szinek[14] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[2] == kijon && szinek[14] == kijon && szinek[23] == kijon)
                         {
                             // MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 15:
                         if (szinek[15] == kijon && szinek[16] == kijon && szinek[17] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[6] == kijon && szinek[11] == kijon && szinek[15] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 16:
                         if (szinek[15] == kijon && szinek[16] == kijon && szinek[17] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[19] == kijon && szinek[22] == kijon && szinek[16] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 17:
                         if (szinek[15] == kijon && szinek[16] == kijon && szinek[17] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[8] == kijon && szinek[12] == kijon && szinek[17] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 18:
                         if (szinek[18] == kijon && szinek[19] == kijon && szinek[20] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[3] == kijon && szinek[10] == kijon && szinek[18] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 19:
                         if (szinek[18] == kijon && szinek[19] == kijon && szinek[20] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[19] == kijon && szinek[22] == kijon && szinek[16] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 20:
                         if (szinek[18] == kijon && szinek[19] == kijon && szinek[20] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[5] == kijon && szinek[13] == kijon && szinek[20] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 21:
                         if (szinek[21] == kijon && szinek[22] == kijon && szinek[23] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
-                        if (szinek[ide] == kijon && szinek[9] == kijon && szinek[21] == kijon)
+                        if (szinek[0] == kijon && szinek[9] == kijon && szinek[21] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 22:
                         if (szinek[21] == kijon && szinek[22] == kijon && szinek[23] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[19] == kijon && szinek[22] == kijon && szinek[16] == kijon)
                         {
                             //MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
                     case 23:
                         if (szinek[21] == kijon && szinek[22] == kijon && szinek[23] == kijon)
                         {
                             //MessageBox.Show(" malom vízszintes");
+                            malome = true;
                         }
                         //függőleges nézés
                         if (szinek[2] == kijon && szinek[14] == kijon && szinek[23] == kijon)
                         {
                             // MessageBox.Show(" malom függőleges");
+                            malome = true;
                         }
                         break;
             }
@@ -1155,8 +1292,10 @@ namespace malom
                 case 12:
                     PicPosition[6].Tag = "1";
                     PicPosition[15].Tag = "1";
+                    PicPosition[11].Tag = "1";
                     pos[0] = 6;
                     pos[1] = 15;
+                    pos[2] = 11;
                     
 
                     vaneottelem(pos);

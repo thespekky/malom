@@ -180,7 +180,7 @@ namespace malom
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(479, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(685, 52);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(69, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

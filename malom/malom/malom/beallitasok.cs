@@ -151,8 +151,8 @@ namespace malom
 
         private void vissza_MouseLeave(object sender, EventArgs e)
         {
-            vissza.BackColor = Color.Transparent;
-            vissza.ForeColor = Color.Black;
+            vissza.BackColor = Color.Aquamarine;
+            vissza.ForeColor = Color.MediumBlue;
             vissza.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
 
@@ -165,8 +165,8 @@ namespace malom
 
         private void button2_MouseLeave(object sender, EventArgs e)
         {
-            button2.BackColor = Color.Transparent;
-            button2.ForeColor = Color.Black;
+            button2.BackColor = Color.Aquamarine;
+            button2.ForeColor = Color.MediumBlue;
             button2.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
 
@@ -179,8 +179,8 @@ namespace malom
 
         private void button3_MouseLeave(object sender, EventArgs e)
         {
-            button3.BackColor = Color.Transparent;
-            button3.ForeColor = Color.Black;
+            button3.BackColor = Color.Aquamarine;
+            button3.ForeColor = Color.MediumBlue;
             button3.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
 
@@ -193,8 +193,8 @@ namespace malom
 
         private void button4_MouseLeave(object sender, EventArgs e)
         {
-            button4.BackColor = Color.Transparent;
-            button4.ForeColor = Color.Black;
+            button4.BackColor = Color.Aquamarine;
+            button4.ForeColor = Color.MediumBlue;
             button4.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
 
@@ -207,8 +207,8 @@ namespace malom
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
-            button1.BackColor = Color.Transparent;
-            button1.ForeColor = Color.Black;
+            button1.BackColor = Color.Aquamarine;
+            button1.ForeColor = Color.MediumBlue;
             button1.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
     }

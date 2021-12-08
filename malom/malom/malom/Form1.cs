@@ -1589,8 +1589,8 @@ namespace malom
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
-            button1.BackColor = Color.Transparent;
-            button1.ForeColor = Color.Black;
+            button1.BackColor = Color.Aquamarine;
+            button1.ForeColor = Color.MediumBlue;
             button1.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
 
@@ -1604,8 +1604,8 @@ namespace malom
 
         private void button2_MouseLeave_1(object sender, EventArgs e)
         {
-            button2.BackColor = Color.Transparent;
-            button2.ForeColor = Color.Black;
+            button2.BackColor = Color.Aquamarine;
+            button2.ForeColor = Color.MediumBlue;
             button2.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
 
@@ -1618,8 +1618,8 @@ namespace malom
 
         private void button3_MouseLeave(object sender, EventArgs e)
         {
-            button3.BackColor = Color.Transparent;
-            button3.ForeColor = Color.Black;
+            button3.BackColor = Color.Aquamarine;
+            button3.ForeColor = Color.MediumBlue;
             button3.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
 
@@ -1632,8 +1632,8 @@ namespace malom
 
         private void bezarbtn_MouseLeave(object sender, EventArgs e)
         {
-            bezarbtn.BackColor = Color.Transparent;
-            bezarbtn.ForeColor = Color.Black;
+            bezarbtn.BackColor = Color.Aquamarine;
+            bezarbtn.ForeColor = Color.MediumBlue;
             bezarbtn.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
     }

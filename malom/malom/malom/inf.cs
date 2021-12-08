@@ -87,8 +87,8 @@ namespace malom
 
         private void visszabtn_MouseLeave(object sender, EventArgs e)
         {
-            visszabtn.BackColor = Color.Transparent;
-            visszabtn.ForeColor = Color.Black;
+            visszabtn.BackColor = Color.Aquamarine;
+            visszabtn.ForeColor = Color.MediumBlue;
             visszabtn.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
         }
     }

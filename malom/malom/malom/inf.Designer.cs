@@ -47,12 +47,14 @@ namespace malom
             // 
             // visszabtn
             // 
+            this.visszabtn.BackColor = System.Drawing.Color.Aquamarine;
+            this.visszabtn.ForeColor = System.Drawing.Color.MediumBlue;
             this.visszabtn.Location = new System.Drawing.Point(30, 27);
             this.visszabtn.Name = "visszabtn";
             this.visszabtn.Size = new System.Drawing.Size(84, 34);
             this.visszabtn.TabIndex = 0;
             this.visszabtn.Text = "Vissza";
-            this.visszabtn.UseVisualStyleBackColor = true;
+            this.visszabtn.UseVisualStyleBackColor = false;
             this.visszabtn.Click += new System.EventHandler(this.visszabtn_Click);
             this.visszabtn.MouseEnter += new System.EventHandler(this.visszabtn_MouseEnter);
             this.visszabtn.MouseLeave += new System.EventHandler(this.visszabtn_MouseLeave);

@@ -65,8 +65,9 @@ namespace malom
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.BackColor = System.Drawing.Color.Aquamarine;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.MediumBlue;
             this.label1.Location = new System.Drawing.Point(39, 3);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 20);
@@ -76,8 +77,9 @@ namespace malom
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.BackColor = System.Drawing.Color.Aquamarine;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.MediumBlue;
             this.label2.Location = new System.Drawing.Point(9, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(165, 20);
@@ -86,7 +88,8 @@ namespace malom
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackColor = System.Drawing.Color.Aquamarine;
+            this.button1.ForeColor = System.Drawing.Color.MediumBlue;
             this.button1.Location = new System.Drawing.Point(102, 16);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 52);
@@ -133,24 +136,28 @@ namespace malom
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.Aquamarine;
+            this.button3.ForeColor = System.Drawing.Color.MediumBlue;
             this.button3.Location = new System.Drawing.Point(102, 132);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(99, 52);
             this.button3.TabIndex = 6;
             this.button3.Text = "beállítások";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             this.button3.MouseEnter += new System.EventHandler(this.button3_MouseEnter);
             this.button3.MouseLeave += new System.EventHandler(this.button3_MouseLeave);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Aquamarine;
+            this.button2.ForeColor = System.Drawing.Color.MediumBlue;
             this.button2.Location = new System.Drawing.Point(102, 74);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(99, 52);
             this.button2.TabIndex = 5;
             this.button2.Text = "Információ";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             this.button2.MouseEnter += new System.EventHandler(this.button2_MouseEnter_1);
             this.button2.MouseLeave += new System.EventHandler(this.button2_MouseLeave_1);
@@ -158,7 +165,8 @@ namespace malom
             // kijonlbl
             // 
             this.kijonlbl.AutoSize = true;
-            this.kijonlbl.BackColor = System.Drawing.Color.White;
+            this.kijonlbl.BackColor = System.Drawing.Color.Aquamarine;
+            this.kijonlbl.ForeColor = System.Drawing.Color.MediumBlue;
             this.kijonlbl.Location = new System.Drawing.Point(353, 12);
             this.kijonlbl.Name = "kijonlbl";
             this.kijonlbl.Size = new System.Drawing.Size(29, 13);
@@ -168,12 +176,14 @@ namespace malom
             // 
             // bezarbtn
             // 
+            this.bezarbtn.BackColor = System.Drawing.Color.Aquamarine;
+            this.bezarbtn.ForeColor = System.Drawing.Color.MediumBlue;
             this.bezarbtn.Location = new System.Drawing.Point(685, 12);
             this.bezarbtn.Name = "bezarbtn";
             this.bezarbtn.Size = new System.Drawing.Size(84, 34);
             this.bezarbtn.TabIndex = 7;
             this.bezarbtn.Text = "Bezár";
-            this.bezarbtn.UseVisualStyleBackColor = true;
+            this.bezarbtn.UseVisualStyleBackColor = false;
             this.bezarbtn.Click += new System.EventHandler(this.button4_Click);
             this.bezarbtn.MouseEnter += new System.EventHandler(this.bezarbtn_MouseEnter);
             this.bezarbtn.MouseLeave += new System.EventHandler(this.bezarbtn_MouseLeave);

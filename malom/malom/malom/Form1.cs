@@ -30,8 +30,9 @@ namespace malom
         static int letetelutan = 0;
         static int kijon = 0;
         static bool malome = false;
+        static int lehetsegeslepes = 0;
         public Form1()
-        {
+        {   
             InitializeComponent();
         }
 
@@ -641,6 +642,8 @@ namespace malom
                         lerakas = true;
                         hovamozoghat(iduj);
                     }
+                    //kijon 0 fehér vagy 1 fekete
+                    vegevane();
                 }
                 else
                 {
@@ -700,7 +703,278 @@ namespace malom
                         hovamozoghat(iduj);
                     }
                 }
-            }  
+            }
+            
+        }
+
+        private void vegevane()
+        {
+            int hanybabu = 0;
+            for (int i = 0; i < szinek.Length; i++)
+            {
+                if (szinek[i]==kijon)
+                {
+                    hanybabu++;
+                }
+            }
+            if (hanybabu<=2)
+            {
+                if (kijon == 0)
+                {
+                    MessageBox.Show($"{nev1} kevés bábúval rendelkezik ezért veszített! ");
+                    Application.Restart();
+                }
+                else
+                {
+                    MessageBox.Show($"{nev2} kevés bábúval rendelkezik ezért veszített! ");
+                    Application.Restart();
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 24; i++)
+                {
+                    //ha még nem talált léphető részt
+                    if (lehetsegeslepes <= 0)
+                    {
+                        merremehet(i);
+
+                    }
+                }
+                if (lehetsegeslepes > 0)
+                {
+                    if (kijon == 0)
+                    {
+                        MessageBox.Show($"{nev1} nem tud máshová lépni ezért veszített! ");
+                        Application.Restart();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"{nev2} nem tud máshová lépni ezért veszített! ");
+                        Application.Restart();
+                    }
+                }
+            }
+            
+        }
+
+        private void merremehet(int id)
+        {
+            //ha 2 db bábú van akkor is legyen vége
+            //lehet használni a kijon válltozót
+            int[] pos = new int[4];
+            switch (id)
+            {
+                case 1:
+                   
+                    pos[0] = 1;
+                    pos[1] = 9;
+                    elemhol(pos);
+                    break;
+                case 2:
+                    
+                    pos[0] = 0;
+                    pos[1] = 2;
+                    pos[2] = 4;
+
+                    elemhol(pos);
+                    break;
+                case 3:
+                    
+                    pos[0] = 1;
+                    pos[1] = 14;
+
+
+                    elemhol(pos);
+                    break;
+                case 4:
+                    
+                    pos[0] = 4;
+                    pos[1] = 10;
+
+
+                    elemhol(pos);
+                    break;
+                case 5:
+                    
+
+                    pos[0] = 1;
+                    pos[1] = 3;
+                    pos[2] = 5;
+                    pos[3] = 7;
+
+                    elemhol(pos);
+                    break;
+                case 6:
+                    
+                    pos[0] = 4;
+                    pos[1] = 13;
+
+
+                    elemhol(pos);
+                    break;
+                case 7:
+                    
+                    pos[0] = 7;
+                    pos[1] = 11;
+
+                    elemhol(pos);
+                    break;
+                case 8:
+                   
+                    pos[0] = 6;
+                    pos[1] = 8;
+                    pos[2] = 4;
+                    elemhol(pos);
+                    break;
+                case 9:
+                    
+                    pos[0] = 7;
+                    pos[1] = 12;
+
+                    elemhol(pos);
+                    break;
+                case 10:
+                    
+                    pos[0] = 0;
+                    pos[1] = 10;
+                    pos[2] = 21;
+
+                    elemhol(pos);
+                    break;
+                case 11:
+                    
+                    pos[0] = 3;
+                    pos[1] = 9;
+                    pos[2] = 11;
+                    pos[3] = 18;
+
+                    elemhol(pos);
+                    break;
+                case 12:
+                    
+                    pos[0] = 6;
+                    pos[1] = 15;
+                    pos[2] = 11;
+
+
+                    elemhol(pos);
+                    break;
+                case 13:
+                    
+                    pos[0] = 8;
+                    pos[1] = 17;
+                    pos[2] = 13;
+
+                    elemhol(pos);
+                    break;
+                case 14:
+                    
+                    pos[0] = 5;
+                    pos[1] = 12;
+                    pos[2] = 14;
+                    pos[3] = 20;
+
+                    elemhol(pos);
+                    break;
+                case 15:
+                   
+
+                    pos[0] = 2;
+                    pos[1] = 13;
+                    pos[2] = 23;
+
+
+                    elemhol(pos);
+                    break;
+                case 16:
+                    
+                    pos[0] = 11;
+                    pos[1] = 16;
+
+                    elemhol(pos);
+                    break;
+                case 17:
+                    
+                    pos[0] = 15;
+                    pos[1] = 17;
+                    pos[2] = 19;
+
+                    elemhol(pos);
+                    break;
+                case 18:
+                    
+                    pos[0] = 16;
+                    pos[1] = 12;
+
+                    elemhol(pos);
+                    break;
+                case 19:
+                    
+                    pos[0] = 10;
+                    pos[1] = 19;
+
+                    elemhol(pos);
+                    break;
+                case 20:
+                    
+                    pos[0] = 16;
+                    pos[1] = 18;
+                    pos[2] = 20;
+                    pos[3] = 22;
+
+                    elemhol(pos);
+                    break;
+                case 21:
+                    
+                    pos[0] = 19;
+                    pos[1] = 13;
+
+
+                    elemhol(pos);
+                    break;
+                case 22:
+                    
+                    pos[0] = 9;
+                    pos[1] = 22;
+
+                    elemhol(pos);
+                    break;
+                case 23:
+                    
+                    pos[0] = 21;
+                    pos[1] = 19;
+                    pos[2] = 23;
+
+                    elemhol(pos);
+                    break;
+                case 24:
+                    
+                    pos[0] = 22;
+                    pos[1] = 14;
+
+                    elemhol(pos);
+                    break;
+
+                default:
+                    break;
+            }
+
+        }
+
+        private void elemhol(int[] pos)
+        {
+            for (int i = 0; i < pos.Length; i++)
+            {
+                if (pos[i] != -1)
+                {
+                    if (szinek[pos[i]] == kijon)
+                    {
+                        lehetsegeslepes++;
+                    }
+                }
+
+            }
         }
 
         private void malomellenorzes(int ide,int kijon)
